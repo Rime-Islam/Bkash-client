@@ -4,7 +4,7 @@ const WhyUs = () => {
         <div>
             {/* part 1  */}
             <div className="text-gray-900 body-font">
-            <div className="flex justify-center mt-10 text-4xl font-regular">Why Choose Us?</div>
+            <h1 className="flex justify-center mt-10 text-4xl font-regular">Why Choose Us?</h1>
             <div className="container px-5 py-12 mx-auto">
                 <div className="flex gap-5 md:gap-8 lg:gap-12 flex-wrap text-center justify-center">
                 <div className="p-4 ">

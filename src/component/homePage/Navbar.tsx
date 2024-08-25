@@ -11,7 +11,7 @@ const Navbar = () => {
         }
 
     return (
-        <nav className="flex flex-wrap bg-[#2C2C2C] items-center justify-between p-3 bg-transparent">
+        <div className=" flex bg-[#2C2C2C] items-center justify-between p-3 ">
 <div className="flex">
 <img
     src="/logo.png"
@@ -74,7 +74,7 @@ const Navbar = () => {
   >
     Login
   </button>
-</nav>
+</div>
 
     );
 };
