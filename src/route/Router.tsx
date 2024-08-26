@@ -7,6 +7,7 @@ import Cars from "../Layout/pages/Cars";
 import Contact from "../Layout/pages/Contact";
 import Terms from "../Layout/pages/Terms";
 import Booking from "../Layout/pages/Booking";
+import CarDetails from "../Layout/pages/CarDetails";
 
 
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path: "/cars",
           element: <Cars />,
+        },
+        {
+          path: "/cars/:id",
+          element: <CarDetails />,
         },
         {
           path: "/contact",
