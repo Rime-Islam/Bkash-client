@@ -1,5 +1,7 @@
 import Banner from "../../component/homePage/Banner";
 import Extra from "../../component/homePage/Extra";
+import Extrafour from "../../component/homePage/Extrafour";
+import ExtraThree from "../../component/homePage/ExtraThree";
 import ExtraTwo from "../../component/homePage/ExtraTwo";
 import Feature from "../../component/homePage/Feature";
 import Review from "../../component/homePage/Review";
@@ -12,10 +14,13 @@ const Home = () => {
         <div>
             <Banner />
             <Extra />
-            <ExtraTwo />
+            <Extrafour />
             <Feature />
             <WhyUs />
+            <ExtraThree />
+            <ExtraTwo />
             <Testimonial />
+
             <Review />
         </div>
     );

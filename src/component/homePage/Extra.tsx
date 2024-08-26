@@ -2,7 +2,7 @@ import { FaCaretRight } from "react-icons/fa6";
 
 const Extra = () => {
     return (
-        <div className="pt-10 md:pt-20 max-w-6xl mx-auto">
+        <div className="py-10 md:py-20 max-w-6xl mx-auto">
   <div className=" px-8 lg:flex lg:justify-center ">
     <div className="text-center flex-1 lg:text-left lg:mt-16">
     <h1 className="text-2xl lg:text-4xl font-bold leading-7">

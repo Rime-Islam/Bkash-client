@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const Feature = () => {
     return (
-        <div className='my-16'>
+        <div className='mb-16 md:mb-20 lg:mb-28'>
              <h1 className="flex mb-5 justify-center text-4xl font-regular">Latest Feature</h1>
       <section className=" overflow-hidden">
   <div className=" px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 flex flex-col justify-center">
@@ -111,6 +112,13 @@ const Feature = () => {
    
   </div>
 </section>
+<div className="flex justify-center mt-5">
+                 <Link to="/cars">
+                 <button className="px-6 py-2 min-w-[120px] text-center text-white bg-amber-600 rounded active:text-amber-600 hover:bg-amber-500 ">
+                       View All
+                    </button>
+                 </Link>
+                   </div>
 
         </div>
     );

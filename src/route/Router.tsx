@@ -11,6 +11,7 @@ import CarDetails from "../Layout/pages/CarDetails";
 import Register from "../Layout/pages/Auth/Register";
 import Login from "../Layout/pages/Auth/Login";
 import ForgetPassword from "../Layout/pages/Auth/ForgetPassword";
+import SetPassword from "../Layout/pages/Auth/SetPassword";
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         {
           path: "/forget_password",
           element: <ForgetPassword />,
+        },
+        {
+          path: "/forget_password/:id/:token",
+          element: <SetPassword />,
         },
         {
           path: "/about",
