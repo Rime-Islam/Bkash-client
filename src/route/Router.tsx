@@ -8,6 +8,9 @@ import Contact from "../Layout/pages/Contact";
 import Terms from "../Layout/pages/Terms";
 import Booking from "../Layout/pages/Booking";
 import CarDetails from "../Layout/pages/CarDetails";
+import Register from "../Layout/pages/Auth/Register";
+import Login from "../Layout/pages/Auth/Login";
+import ForgetPassword from "../Layout/pages/Auth/ForgetPassword";
 
 
 
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/forget_password",
+          element: <ForgetPassword />,
         },
         {
           path: "/about",
