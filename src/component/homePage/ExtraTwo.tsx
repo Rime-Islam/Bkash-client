@@ -16,7 +16,7 @@ const LogoCarousel = () => {
      centerPadding: '0px'
     };
   return (
-   <div className='mb-10 md:mb-16  pt-4 max-w-6xl mx-auto'>
+   <div className='mb-10 md:mb-16 pt-4 max-w-6xl lg:mx-auto mx-10 '>
      <Slider {...settings}>
       <div><img className='mt-2' src="img1.png" alt="Logo 1" /></div>
       <div><img src="img2.png" alt="img 2" /></div>

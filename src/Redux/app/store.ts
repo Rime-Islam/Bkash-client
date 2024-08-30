@@ -4,6 +4,7 @@ import { baseApi } from "../features/Api/baseApi";
 export const store = configureStore({
     reducer: {
         [baseApi.reducerPath]: baseApi.reducer,
+        
     },
 
     // Adding the api middleware enables caching, invalidation, polling,

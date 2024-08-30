@@ -20,17 +20,25 @@ const Navbar = () => {
           alt=""
         /> <span className="text-xl font-semibold text-white">AutoRide</span>
       </div>
-        <div className="flex md:hidden">
-          <button type="button" onClick={toggleMenu}>
+        <div className="flex lg:hidden items-center md:justify-center md:w-full lg:w-auto ">
+          <button type="button" onClick={toggleMenu} className="">
               {
-                  isOpen ? <RxCross2 />:  <AiOutlineMenu />
+                  isOpen ? <RxCross2 className=" hidden"/>:  <AiOutlineMenu className="text-white bg-red"/>
               }
           </button>
 
         </div>
         <div className={`${
           isOpen ? 'block' : 'hidden'} items-center justify-center w-full  lg:flex lg:w-auto `}>
-      <ul className="flex flex-col text-white mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+      <ul className="flex flex-col text-end md:text-start gap-2 text-white mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+      <div className="flex  items-center md:w-full lg:w-auto ">
+          <button type="button" onClick={toggleMenu} className=" ">
+              {
+                  isOpen ? <RxCross2 className="ml-28 md:ml-0"/>:  <AiOutlineMenu className="hidden "/>
+              }
+          </button>
+
+        </div>
       <li>
       <NavLink
                       to="/"
@@ -71,7 +79,7 @@ const Navbar = () => {
       </ul>
         </div>
         <button
-          className="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
+          className=" hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
         >
           Login
         </button>

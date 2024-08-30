@@ -12,10 +12,10 @@ import WhyUs from "../../component/homePage/WhyUs";
 const Home = () => {
     return (
         <div>
-            <Banner />
+            <Banner /> 
             <Extra />
-            <Extrafour />
-            <Feature />
+             <Extrafour />
+             <Feature /> 
             <WhyUs />
             <ExtraThree />
             <ExtraTwo />
