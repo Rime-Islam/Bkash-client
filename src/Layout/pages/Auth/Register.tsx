@@ -1,8 +1,73 @@
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import { useRegisterUserMutation } from "../../../Redux/features/Signup/signupApi";
+
+
+
+type TFormInput = {
+  name: string;
+  email: string;
+  createPassword: string;
+  confirmPassword: string;
+  phone: string;
+  address: string;
+};
 
 const Register = () => {
-    const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
+  const [isChecked, setIsChecked] = useState(false);
+  const [ registerUser, { isLoading } ] = useRegisterUserMutation();
+  const { register, handleSubmit, reset } = useForm<TFormInput>();
+
+    const onSubmit: SubmitHandler<TFormInput> = async(data) => {
+        if (data.createPassword !== data.confirmPassword) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Passwords doesn't match with each other!"
+          });
+          return;
+        }
+       
+
+        if (!isChecked) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "You must agree to the Terms of Service."
+          });
+          return;
+        }
+       const name = data.name;
+       const email = data.email;
+       const role = "user";
+       const password = data.createPassword;
+       const phone = data.phone;
+       const address = data.address;
+
+       const res = await registerUser({ name, email, role, password, phone, address });
+      
+       if (res?.data?.success){
+        Swal.fire({
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          navigate('/login');
+        })
+       } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: res?.error?.data?.message || "An Error occured"
+        });
+       }
+       
+    };
+
     return (
         <div>
   <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
@@ -21,7 +86,7 @@ const Register = () => {
           <h1 className="text-2xl lg:text-3xl font-bold">Sign up</h1>
           <div className="w-full flex-1 mt-5">
             
-          <form  className=" px-5 " action="" method="POST">
+          <form onSubmit={handleSubmit(onSubmit)}  className=" px-5 " action="" method="POST">
     
     <div className="mb-4 ">
       <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
@@ -57,10 +122,10 @@ const Register = () => {
       </label>
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        id="password"
+        id="createPassword"
         type="password"
         placeholder="Enter A Password"
-        {...register("password", { required: true })}
+        {...register("createPassword", { required: true })}
         required
       />
     </div>
@@ -85,17 +150,35 @@ const Register = () => {
       </label>
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        id="number"
+        id="phone"
         type="number"
         placeholder="Enter Your Phone Number"
-        {...register("number", { required: true })}
+        {...register("phone", { required: true })}
+        required
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
+        Address
+      </label>
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="address"
+        type="text"
+        placeholder="Enter Your Phone Number"
+        {...register("address", { required: true })}
         required
       />
     </div>
     
     <div className="mb-5">
   <label className=" text-gray-500 font-bold flex">
-    <input className="mr-2 leading-tight" type="checkbox" />
+    <input
+    className="mr-2 leading-tight"
+    type="checkbox"
+    checked={isChecked}
+    onChange={(e) => setIsChecked(e.target.checked)}
+    />
     <span><Link to="/terms">
     <p className="text-sm text-center hover:underline hover:text-blue-600">Terms of Service and its Privacy Policy</p>
     </Link></span>
@@ -108,7 +191,9 @@ const Register = () => {
         className="text-white w-full font-semibold bg-amber-500 hover:bg-amber-600 py-2 px-4 rounded"
         type="submit"
       >
-        Sign up
+       {
+        isLoading ? <span>Loading...</span> : <span>Signup</span>
+       }
       </button>
     </div>
     <Link to="/login">
