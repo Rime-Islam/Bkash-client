@@ -1,8 +1,15 @@
+import { useResetPasswordMutation } from "../../../Redux/features/Auth/authApi";
 
 
 const SetPassword = () => {
+  const [ resetPassword ] = useResetPasswordMutation();
+
+  const handleResetPassword = () => {
+    
+  }
+
     return (
-        <div className="w-full  max-w-md mx-auto p-12">
+        <div className="w-full  max-w-md mx-auto  mt-[18vh] mb-[10vh]">
         <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-amber-500">
           <div className="p-4 sm:p-7">
             <div className="text-center">
@@ -12,7 +19,7 @@ const SetPassword = () => {
               
             </div>
             <div className="mt-5">
-              <form>
+              <form onSubmit={handleResetPassword}>
                 <div className="grid gap-y-4">
                   <div>
                     <label
