@@ -82,7 +82,7 @@ const Navbar = () => {
        <button
           className=" hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
         >
-          Login
+          Signin
         </button>
         </Link>
       </div>

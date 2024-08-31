@@ -12,6 +12,7 @@ import Register from "../Layout/pages/Auth/Register";
 import Login from "../Layout/pages/Auth/Login";
 import ForgetPassword from "../Layout/pages/Auth/ForgetPassword";
 import SetPassword from "../Layout/pages/Auth/SetPassword";
+import Dashboard from "../Layout/pages/dashboard/Dashboard";
 
 
 
@@ -67,6 +68,13 @@ const router = createBrowserRouter([
         },
       ]
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+      children: [
+        
+      ]
+    }
   ]);
 
 export default router;
