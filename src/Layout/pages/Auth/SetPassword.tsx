@@ -1,12 +1,48 @@
+import Swal from "sweetalert2";
 import { useResetPasswordMutation } from "../../../Redux/features/Auth/authApi";
-
+import { useNavigate, useParams } from "react-router-dom";
 
 const SetPassword = () => {
-  const [ resetPassword ] = useResetPasswordMutation();
+  const navigate = useNavigate();
+  const { id, token } = useParams<{ id: string; token: string }>();
+  const [ resetPassword, { isLoading } ] = useResetPasswordMutation();
 
-  const handleResetPassword = () => {
-    
-  }
+  const handleResetPassword = async(e: React.FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+
+    const newPassword = form.newPassword.value;
+    const confirmPassword = form.confirmPassword.value;
+
+    if (newPassword !== confirmPassword) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Passwords doesn't match with each other!"
+      });
+      return;
+    }
+    const password = confirmPassword;
+
+    const res = await resetPassword({ id, token, password });
+    if (res?.data?.success){
+      Swal.fire({
+        icon: "success",
+        title: res.data.message,
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        navigate('/login');
+      })
+     } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: res?.error?.data?.message || "An Error occured"
+      });
+     }
+
+  };
 
     return (
         <div className="w-full  max-w-md mx-auto  mt-[18vh] mb-[10vh]">
@@ -32,7 +68,7 @@ const SetPassword = () => {
                       <input
                         type="password"
                         id="newPassword"
-                        name="password"
+                        name="newpassword"
                         className="py-3 px-4 block w-full border-2 border-amber-500 rounded-md text-sm "
                         required
                       />
@@ -59,7 +95,9 @@ const SetPassword = () => {
                     type="submit"
                     className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-amber-600 text-white hover:bg-amber-500 text-sm"
                   >
-                    Reset password
+                      {
+                        isLoading ? <span>Loading...</span> : <span>Reset password</span>
+                      }
                   </button>
                 </div>
               </form>

@@ -30,7 +30,7 @@ const Login = () => {
           }
 
           const res = await loginUser({ email, password });
-console.log(res.data)
+
           const user = verifyToken(res?.data?.data?.token) as TUser;
           dispatch(setUser({ user: user, token: res?.data?.data?.token }));
 

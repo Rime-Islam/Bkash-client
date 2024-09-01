@@ -2,12 +2,22 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import {  Link, NavLink } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
+import { logout, useCurrentUser } from "../../Redux/features/Auth/authSlice";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useAppDispatch();
+    const user = useAppSelector(useCurrentUser);
+    
 
         const toggleMenu = () => {
             setIsOpen(!isOpen);
+        }
+
+        const handleLogOut = async() => {
+          console.log('log out')
+          dispatch(logout());
         }
 
     return (
@@ -30,7 +40,7 @@ const Navbar = () => {
         </div>
         <div className={`${
           isOpen ? 'block' : 'hidden'} items-center justify-center w-full  lg:flex lg:w-auto `}>
-      <ul className="flex flex-col text-end md:text-start gap-2 text-white mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+      <ul className="flex flex-col text-end md:text-start gap-2 text-white mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
       <div className="flex  items-center md:w-full lg:w-auto ">
           <button type="button" onClick={toggleMenu} className=" ">
               {
@@ -76,15 +86,38 @@ const Navbar = () => {
               Contact
           </NavLink>
       </li>
+      <li>
+     {
+      user &&  <NavLink
+      to="/dashboard"
+      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+      aria-current="page"
+    >
+
+Dashboard
+</NavLink> 
+     }
+      </li>
       </ul>
         </div>
-       <Link to="/login">
+      <div className="flex gap-2">
+      <Link to="/login">
        <button
-          className=" hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
+          className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
         >
           Signin
         </button>
         </Link>
+  
+     {
+      user &&   <button onClick={handleLogOut}
+      className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right hover:bg-white font-semibold bg-amber-600 hover:text-amber-600 text-white md:rounded"
+    >
+      Logout
+    </button>
+     }
+     
+      </div>
       </div>
         </div>
 

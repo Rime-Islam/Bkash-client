@@ -13,6 +13,9 @@ import Login from "../Layout/pages/Auth/Login";
 import ForgetPassword from "../Layout/pages/Auth/ForgetPassword";
 import SetPassword from "../Layout/pages/Auth/SetPassword";
 import Dashboard from "../Layout/pages/dashboard/Dashboard";
+import ProtectedRoute from "./ProtectedRoute";
+import CreateCar from "../Layout/pages/dashboard/adminDashboard/CreateCar";
+import AdminOverview from "../Layout/pages/dashboard/adminDashboard/AdminOverview";
 
 
 
@@ -70,9 +73,28 @@ const router = createBrowserRouter([
     },
     {
       path: "/dashboard",
-      element: <Dashboard />,
+      element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
       children: [
-        
+        {
+          index: true,
+          element: <AdminOverview />,
+        },
+        {
+          path: "create_car",
+          element: <CreateCar />,
+        },
+        {
+          path: "manage_booking",
+          element: <CreateCar />,
+        },
+        {
+          path: "manage_return_car",
+          element: <CreateCar />,
+        },
+        {
+          path: "user_management",
+          element: <CreateCar />,
+        },
       ]
     }
   ]);
