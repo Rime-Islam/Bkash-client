@@ -101,13 +101,15 @@ Dashboard
       </ul>
         </div>
       <div className="flex gap-2">
-      <Link to="/login">
-       <button
-          className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
-        >
-          Signin
-        </button>
-        </Link>
+     {
+      !user &&  <Link to="/login">
+      <button
+         className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
+       >
+         Signin
+       </button>
+       </Link>
+     }
   
      {
       user &&   <button onClick={handleLogOut}

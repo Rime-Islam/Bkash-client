@@ -11,8 +11,8 @@ import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const dispatch = useAppDispatch();
-    const user = useAppSelector(useCurrentUser);
+    // const dispatch = useAppDispatch();
+    // const user = useAppSelector(useCurrentUser);
     
    
 
@@ -27,7 +27,7 @@ const Dashboard = () => {
         <div className="flex flex-col flex-1 overflow-y-auto">
           <div className="flex items-center justify-between h-16 bg-white border-b border-gray-200">
             <div className="flex items-center px-4">
-            <button type="button" onClick={toggleMenu} >
+            <button type="button" onClick={toggleMenu} className="flex lg:hidden">
               {
                   isOpen ? <RxCross2 />:  <AiOutlineMenu />
               }
