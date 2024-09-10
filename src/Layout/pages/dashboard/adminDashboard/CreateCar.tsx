@@ -33,13 +33,14 @@ const CreateCar = () => {
       };
     return (
         <div className="mb-12">
-        <div className="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="max-w-5xl mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
 <div className="text-2xl py-4 px-6 text-white bg-amber-600 hover:bg-amber-500 rounded text-center font-bold uppercase">
 Create A Product
 </div>
 <form onSubmit={handleSubmit(onSubmit)} className="py-4 px-6 " action="" method="POST">
 
-<div className="mb-4 ">
+<div className="lg:flex gap-5">
+<div className="mb-4 flex-1 ">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
    Name
   </label>
@@ -52,8 +53,7 @@ Create A Product
     required
   />
 </div>
-
-<div className="mb-4">
+<div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
     Type
   </label>
@@ -66,8 +66,10 @@ Create A Product
     required
   />
 </div>
+</div>
 
-<div className="mb-4">
+<div className="lg:flex gap-5">
+<div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="phone">
     Car Color
   </label>
@@ -82,7 +84,7 @@ Create A Product
   />
 </div>
 
-<div className="mb-4">
+<div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
     Freatures
   </label>
@@ -95,8 +97,10 @@ Create A Product
     required
   />
 </div>
+</div>
 
-<div className="mb-4">
+<div className="lg:flex gap-5">
+<div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
     Price Per Hour
   </label>
@@ -109,13 +113,13 @@ Create A Product
     required
   />
 </div>
-
-<div>
-    {/* status section  */}
-    <div className="shadow appearance-none border rounded w-full  text-gray-700">
+ {/* status section  */}
+ <div className="flex-1">
+   <h4 className="  text-gray-700 font-bold mb-1">Car Status</h4>
+    <div className="shadow  appearance-none border rounded h-10 text-gray-700">  
     <div className="group relative cursor-pointer py-2">
         <div className="flex items-center justify-between space-x-5 bg-white px-4">
-        <p className="menu-hover text-base font-medium text-black">
+        <p className="menu-hover block text-gray-700 font-bold ">
             {status}
         </p>
         <span>
@@ -132,23 +136,34 @@ Create A Product
         </div>
     </div>
     </div>
+   </div>
+</div>
 
+<div className="lg:flex gap-5">
+  {/* image section  */}
+  <div className="flex-1">
+
+
+  </div>
 {/* isElectrict section  */}
-<div className="border rounded-md p-4 w-full mx-auto max-w-2xl">
-  <h4 className="text-xl lg:text-2xl font-semibold">Is Electrict</h4>
-  <div>
-    <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
-      <input type="radio" name="Country" />
-      <i className="pl-2">Yes</i>
+<div className="flex-1">
+<div className="flex gap-4 mb-3 ">   
+<div className="flex-1 ">
+  <h4 className="  text-gray-700 font-bold">Is Electrict</h4>
+  <div className="flex gap-3">
+    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2 hover:bg-indigo-300 cursor-pointer ">
+      <input type="radio" name="isElectrict" />
+      <i className="pl-2 text-sm">Yes</i>
     </label>
-    <label className="flex bg-gray-100 text-gray-700 rounded-md px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
-      <input type="radio" name="Country" />
-      <i className="pl-2">No</i>
+    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2  hover:bg-indigo-300 cursor-pointer ">
+      <input type="radio" name="isElectrict" />
+      <i className="pl-2 text-sm">No</i>
     </label>
  
   </div>
 </div>
-
+</div>
+</div>
 </div>
 
 <div className="mb-4">
