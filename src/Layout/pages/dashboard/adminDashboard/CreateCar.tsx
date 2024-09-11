@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import { TFormInput } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
+import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
+import Swal from "sweetalert2";
 
 
 
@@ -11,10 +12,9 @@ import { uploadImage } from "../../../../hook/UploadImage";
 
 
 const CreateCar = () => {
-    const navigate = useNavigate();
     const { register, handleSubmit } = useForm<TFormInput>();
     const [status, setStatus] = useState('available');
-    
+    const [ createACar, { isLoading }] = useCreateACarMutation();
 
     const handleSelect = (value: string) => {
         setStatus(value);
@@ -22,21 +22,38 @@ const CreateCar = () => {
   
     const onSubmit: SubmitHandler<TFormInput> = async(data) => {
         const imageFile = data.image[0];
-        const uploadedImageURL = await uploadImage(imageFile);
+        const uploadedImageURL = await uploadImage(imageFile); 
         
-        const formData = {
-          name: data.name,
-          features: data.features,
-          type: data.type,
-          color : data.color,
-          price: data.price,
-          image: uploadedImageURL,
-          description: data.description,
-          isElectrict: data.isElectrict,
-          status: status
-        }
+      const featuresArray = data.features.split(',').map(feature => feature.trim());
       
-   
+      const isElectric = data.isElectric === "true";
+      const pricePerHour = Number(data.pricePerHour);
+
+         const name = data.name;
+          const features = featuresArray;
+          const type = data.type;
+          const color = data.color;
+          const image = uploadedImageURL;
+          const description = data.description;
+
+        const res = await createACar( {
+         name, features, type, color, image, isElectric, pricePerHour, description, status,
+        });
+        console.log(res)
+        if (res?.data?.success){
+          Swal.fire({
+            icon: "success",
+            title: res.data.message,
+            showConfirmButton: false,
+            timer: 1500
+          })
+         } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: res?.error?.data?.message || "An Error occured"
+          });
+         }
          
       };
     return (
@@ -113,10 +130,10 @@ Create A Product
   </label>
   <input
     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    id="price"
-    type="text"
+    id="pricePerHour"
+    type="number"
     placeholder="Enter Car Price Per Hour"
-    {...register("price", { required: true })}
+    {...register("pricePerHour", { required: true })}
     required
   />
 </div>
@@ -167,18 +184,18 @@ Create A Product
 
 
   </div>
-{/* isElectrict section  */}
+{/* isElectric section  */}
 <div className="flex-1">
 <div className="flex gap-4 mb-3 ">   
 <div className="flex-1 ">
   <h4 className="  text-gray-700 font-bold">Is Electrict</h4>
   <div className="flex gap-3">
     <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2 hover:bg-indigo-300 cursor-pointer ">
-      <input type="radio" {...register("isElectrict", { required: true })} value="true" />
+      <input type="radio" {...register("isElectric", { required: true })} value="true" />
       <i className="pl-2 text-sm">Yes</i>
     </label>
     <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2  hover:bg-indigo-300 cursor-pointer ">
-      <input type="radio" {...register("isElectrict", { required: true })} value="false"/>
+      <input type="radio" {...register("isElectric", { required: true })} value="false"/>
       <i className="pl-2 text-sm">No</i>
     </label>
  
@@ -207,9 +224,9 @@ Create A Product
     className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded"
     type="submit"
   >
-    {/* {
+    {
       isLoading ? <span>Creating...</span> : <span>Create</span>
-    } */}
+    }
   </button>
 </div>
 </form>

@@ -4,7 +4,7 @@ export type TFormInput = {
     color: string;
     features: string;
     description: string;
-    price: number;
+    pricePerHour: number;
     image: FileList;
-    isElectrict: string;
+    isElectric: string;
   };
