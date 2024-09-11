@@ -16,6 +16,10 @@ import Dashboard from "../Layout/pages/dashboard/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
 import CreateCar from "../Layout/pages/dashboard/adminDashboard/CreateCar";
 import AdminOverview from "../Layout/pages/dashboard/adminDashboard/AdminOverview";
+import UpdateCar from "../Layout/pages/dashboard/adminDashboard/UpdateCar";
+import ManageBookings from "../Layout/pages/dashboard/adminDashboard/ManageBookings";
+import ManageReturn from "../Layout/pages/dashboard/adminDashboard/ManageReturn";
+import UserManagement from "../Layout/pages/dashboard/adminDashboard/UserManagement";
 
 
 
@@ -84,16 +88,20 @@ const router = createBrowserRouter([
           element: <CreateCar />,
         },
         {
+          path: "update_car",
+          element: <UpdateCar />,
+        },
+        {
           path: "manage_booking",
-          element: <CreateCar />,
+          element: <ManageBookings />,
         },
         {
           path: "manage_return_car",
-          element: <CreateCar />,
+          element: <ManageReturn />,
         },
         {
           path: "user_management",
-          element: <CreateCar />,
+          element: <UserManagement />,
         },
       ]
     }

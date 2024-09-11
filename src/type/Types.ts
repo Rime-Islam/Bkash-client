@@ -1,4 +1,5 @@
 export type TFormInput = {
+    _id: string;
     name: string;
     type: string;
     color: string;
@@ -7,4 +8,5 @@ export type TFormInput = {
     pricePerHour: number;
     image: FileList;
     isElectric: string;
+    status: string;
   };

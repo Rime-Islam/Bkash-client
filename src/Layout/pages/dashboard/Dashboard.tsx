@@ -1,8 +1,8 @@
 import { FaUserCircle } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../Redux/app/hook";
-import {  useCurrentUser } from "../../../Redux/features/Auth/authSlice";
+// import { useAppDispatch, useAppSelector } from "../../../Redux/app/hook";
+// import {  useCurrentUser } from "../../../Redux/features/Auth/authSlice";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import Sidebar from "./Sidebar";

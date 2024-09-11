@@ -7,7 +7,7 @@ import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
 import Swal from "sweetalert2";
 
 
-const CreateCar = () => {
+const UpdateCar = () => {
     const { register, handleSubmit } = useForm<TFormInput>();
     const [status, setStatus] = useState('available');
     const [ createACar, { isLoading }] = useCreateACarMutation();
@@ -172,7 +172,7 @@ Create A Product
   <input
     id="image"
     type="file"
-    className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-[#70AABD] file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-[#A3CADB] "
+    className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-[#70AABD] file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-teal-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60"
     {...register("image", { required: true })}
     required
   />
@@ -186,11 +186,11 @@ Create A Product
 <div className="flex-1 ">
   <h4 className="  text-gray-700 font-bold">Is Electrict</h4>
   <div className="flex gap-3">
-    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2 hover:bg-[#A3CADB] cursor-pointer ">
+    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2 hover:bg-indigo-300 cursor-pointer ">
       <input type="radio" {...register("isElectric", { required: true })} value="true" />
       <i className="pl-2 text-sm">Yes</i>
     </label>
-    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2  hover:bg-[#A3CADB] cursor-pointer ">
+    <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2  hover:bg-indigo-300 cursor-pointer ">
       <input type="radio" {...register("isElectric", { required: true })} value="false"/>
       <i className="pl-2 text-sm">No</i>
     </label>
@@ -232,4 +232,4 @@ Create A Product
     );
 };
 
-export default CreateCar;
+export default UpdateCar;

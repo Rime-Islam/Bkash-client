@@ -12,13 +12,11 @@ const carApi = baseApi.injectEndpoints({
             invalidatesTags: ["cars"],
         }),
         updateACar: builder.mutation({
-            query: ({ id, data }) => {
-                return {
+            query: ({ id, data }) => ({
                     url: `/cars/${id}`,
                     method: "PUT",
                     body: data,
-                };
-            },
+            }),
             invalidatesTags: ["cars"],
         }),
         getAllCar: builder.query({
@@ -45,6 +43,7 @@ const carApi = baseApi.injectEndpoints({
     }),
 });
 
+
 export const { 
     useCreateACarMutation,
     useUpdateACarMutation,
@@ -53,3 +52,4 @@ export const {
     useDeleteACarMutation,
 
  } = carApi;
+
