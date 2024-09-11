@@ -7,7 +7,7 @@ const Terms = () => {
   <div className="container mx-auto px-4 py-8">
     <p className="mb-4">Effective Date: 2024-7-15</p>
     <div className="w-full flex">
-      <h1 className="text-3xl font-bold mb-4 text-orange-800">
+      <h1 className="text-3xl font-bold mb-4 text-[#FC7E01]">
         Terms of Service for Your Business{" "}
       </h1>
     </div>
@@ -23,7 +23,7 @@ const Terms = () => {
     <br />
     {/* repeat this section for each section of terms */}
     <div className="pb-5">
-      <h2 className="font-bold text-orange-700 dark:text-orange-300">
+      <h2 className="font-bold text-[#FC7E01]">
         General
       </h2>
       <br />

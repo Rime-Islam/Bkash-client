@@ -67,7 +67,7 @@ const WhyUs = () => {
         <div className=" ">
         <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
             <div className="col-span-2 mb-8">
-            <p className="text-lg font-medium text-amber-600 dark:text-amber-600">
+            <p className="text-lg font-medium text-[#FC7E01] dark:text-[#FC7E01]">
                 Trusted Worldwide
             </p>
             <h2 className="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">
@@ -80,7 +80,7 @@ const WhyUs = () => {
             <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
                 <div>
                 <p
-                    className="inline-flex items-center text-base font-medium text-amber-600 hover:text-amber-500 dark:text-amber-600 dark:hover:text-amber-700"
+                    className="inline-flex items-center text-base font-medium text-[#FC7E01] hover:text-amber-500 dark:text-[#FC7E01] dark:hover:text-amber-700"
                 >
                     Explore Legality Guide
                     <svg
@@ -99,7 +99,7 @@ const WhyUs = () => {
                 </div>
                 <div>
                 <p
-                    className="inline-flex items-center text-base font-medium text-amber-600 hover:text-amber-500 dark:text-amber-600 dark:hover:text-amber-700"
+                    className="inline-flex items-center text-base font-medium text-[#FC7E01] hover:text-amber-500 dark:text-[#FC7E01] dark:hover:text-amber-700"
                 >
                     Visit the Trust Center
                     <svg
@@ -121,7 +121,7 @@ const WhyUs = () => {
             <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
             <div>
                 <svg
-                className="w-10 h-10 mb-2 text-amber-500 md:w-12 md:h-12 dark:text-amber-600"
+                className="w-10 h-10 mb-2 text-amber-500 md:w-12 md:h-12 dark:text-[#FC7E01]"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"

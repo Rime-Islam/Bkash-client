@@ -26,7 +26,7 @@ const ForgetPassword = () => {
 
     return (
         <div className=" max-w-md mx-auto mt-[18vh] mb-[10vh]">
-        <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-amber-500">
+        <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-[]">
           <div className="p-4 sm:p-7">
             <div className="text-center">
               <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -57,7 +57,7 @@ const ForgetPassword = () => {
                         type="email"
                         id="email"
                         name="email"
-                        className="py-3 px-4 block w-full border-2 border-amber-500 rounded-md text-sm "
+                        className="py-3 px-4 block w-full border-2 border-[#FC7E01] rounded-md text-sm "
                         required
                         aria-describedby="email-error"
                       />
@@ -68,7 +68,7 @@ const ForgetPassword = () => {
                   </div>
                   <button
                     type="submit"
-                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-amber-600 text-white hover:bg-amber-500 text-sm"
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#FC7E01] text-white hover:bg-amber-500 text-sm"
                   >
                     Forget password
                   </button>

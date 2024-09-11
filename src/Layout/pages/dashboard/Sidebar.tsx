@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             isOpen ? 'block' : 'hidden'} lg:flex w-64 bg-gray-800`}>
           <div className="flex-grow ">
           <div className="w-64 flex  justify-center items-center h-16 bg-gray-900">
-              <span className="text-white font-bold uppercase"><span className="text-amber-500">{user?.role}</span> Dashboard</span>
+              <span className="text-white font-bold uppercase"><span className="text-[#FC7E01]">{user?.role}</span> Dashboard</span>
             </div>
             <div className="flex flex-col flex-1 overflow-y-auto">
               <nav className="flex-1 px-2 py-4 bg-gray-800">
@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                     <li>
                       <NavLink
                                       to="/dashboard/create_car"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Manage Car
@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                   <li>
                       <NavLink
                                       to="/dashboard/manage_booking"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Manage Bookings
@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                   <li>
                       <NavLink
                                       to="/dashboard/manage_return_car"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Manage Return Cars
@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                   <li>
                       <NavLink
                                     to="/dashboard/user_management"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  User Management
@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                     <li>
                       <NavLink
                                       to="/dashboard/create_car"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Booking History
@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                   <li>
                       <NavLink
                                       to="/dashboard/manage_booking"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/> Bookings Management
@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                   <li>
                       <NavLink
                                       to="/dashboard/manage_return_car"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Payment 
@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               <li>
                       <NavLink
                                       to="/dashboard/profile"
-                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600 flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
                           <IoIosCreate className="mt-1 mr-2.5"/>  Profile

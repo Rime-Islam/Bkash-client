@@ -187,7 +187,7 @@ const Register = () => {
 
     <div className=" mb-2">
       <button
-        className="text-white w-full font-semibold bg-amber-500 hover:bg-amber-600 py-2 px-4 rounded"
+        className="text-white w-full font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded"
         type="submit"
       >
        {

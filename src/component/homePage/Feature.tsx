@@ -114,7 +114,7 @@ const Feature = () => {
 </section>
 <div className="flex justify-center mt-5">
                  <Link to="/cars">
-                 <button className="px-6 py-2 min-w-[120px] text-center text-white bg-amber-600 rounded active:text-amber-600 hover:bg-amber-500 ">
+                 <button className="px-6 py-2 min-w-[120px] text-center text-white bg-[#FC7E01] rounded active:text-amber-600 hover:bg-amber-500 ">
                        View All
                     </button>
                  </Link>

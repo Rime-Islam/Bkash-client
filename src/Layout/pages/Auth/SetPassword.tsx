@@ -46,7 +46,7 @@ const SetPassword = () => {
 
     return (
         <div className="w-full  max-w-md mx-auto  mt-[18vh] mb-[10vh]">
-        <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-amber-500">
+        <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-[#FC7E01]">
           <div className="p-4 sm:p-7">
             <div className="text-center">
               <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -69,7 +69,7 @@ const SetPassword = () => {
                         type="password"
                         id="newPassword"
                         name="newpassword"
-                        className="py-3 px-4 block w-full border-2 border-amber-500 rounded-md text-sm "
+                        className="py-3 px-4 block w-full border-2 border-[#FC7E01] rounded-md text-sm "
                         required
                       />
                     </div>
@@ -86,14 +86,14 @@ const SetPassword = () => {
                         type="password"
                         id="confirmPassword"
                         name="confirmPassword"
-                        className="py-3 px-4 block w-full border-2 border-amber-500 rounded-md text-sm "
+                        className="py-3 px-4 block w-full border-2 border-[#FC7E01] rounded-md text-sm "
                         required
                       />
                     </div>
                   </div>
                   <button
                     type="submit"
-                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-amber-600 text-white hover:bg-amber-500 text-sm"
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-amber-600 text-white hover:bg-[#FC7E01] text-sm"
                   >
                       {
                         isLoading ? <span>Loading...</span> : <span>Reset password</span>

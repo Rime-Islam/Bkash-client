@@ -21,8 +21,8 @@ const Navbar = () => {
         }
 
     return (
-        <div className="fixed w-full mx-auto z-10 bg-opacity-30">
-          <div className=" flex bg-[#2C2C2C] items-center justify-between p-3 ">
+        <div className="fixed container mx-auto z-10 bg-opacity-30">
+          <div className=" flex bg-[#A3CADB] items-center justify-between p-3 ">
       <div className="flex">
       <img
           src="/logo.png"
@@ -49,48 +49,48 @@ const Navbar = () => {
           </button>
 
         </div>
-      <li>
+      <li className="font-semibold">
       <NavLink
                       to="/"
-                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#FC7E01]" : "" }
                       aria-current="page"
                     >
             Home
           </NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
       <NavLink
                       to="/about"
-                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#FC7E01]" : "" }
                       aria-current="page"
                     >
             About
           </NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
       <NavLink
                       to="/cars"
-                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#FC7E01]" : "" }
                       aria-current="page"
                     >
             Cars
           </NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
       <NavLink
                       to="/contact"
-                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#FC7E01]" : "" }
                       aria-current="page"
                     >
 
               Contact
           </NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
      {
       user &&  <NavLink
       to="/dashboard"
-      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-amber-600" : "" }
+      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#FC7E01]" : "" }
       aria-current="page"
     >
 
@@ -100,11 +100,11 @@ Dashboard
       </li>
       </ul>
         </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 font-semibold">
      {
       !user &&  <Link to="/login">
       <button
-         className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right bg-white font-semibold hover:bg-amber-600 text-amber-600 hover:text-white md:rounded"
+         className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right bg-white font-semibold hover:bg-[#FC7E01] text-[#FC7E01] hover:text-white md:rounded"
        >
          Signin
        </button>
@@ -113,7 +113,7 @@ Dashboard
   
      {
       user &&   <button onClick={handleLogOut}
-      className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right hover:bg-white font-semibold bg-amber-600 hover:text-amber-600 text-white md:rounded"
+      className=" hidden md:flex w-full md:w-auto px-3 py-1 text-right hover:bg-white font-semibold bg-[#FC7E01] hover:text-[#FC7E01] text-white md:rounded"
     >
       Logout
     </button>

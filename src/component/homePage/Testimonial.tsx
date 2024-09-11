@@ -9,7 +9,7 @@ const Testimonial = () => {
   />
   <section className="pb-12 mx-auto md:pb-20 max-w-7xl">
     <div className="py-4 text-center md:py-8">
-      <h4 className="text-base font-bold tracking-wide text-center uppercase text-amber-600">
+      <h4 className="text-base font-bold tracking-wide text-center uppercase text-[#FC7E01]">
         Reviews
       </h4>
       <p className="mt-2 tracking-tight text-gray-900 text:2xl md:text-4xl">

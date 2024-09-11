@@ -25,14 +25,14 @@ const Footer = () => {
           query ?
         </p>
         <Link to="/contact"
-          className="py-2.5 px-5 h-9 block w-fit bg-amber-600 rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-amber-700 lg:mx-0"
+          className="py-2.5 px-5 h-9 block w-fit bg-[#FC7E01] rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-amber-700 lg:mx-0"
         >
           Contact us
         </Link>
       </div>
       {/*End Col*/}
       <div className="lg:mx-auto text-left ">
-        <h4 className="text-lg text-amber-600  mb-7">Pagedone</h4>
+        <h4 className="text-lg text-[#FC7E01]  mb-7">Pagedone</h4>
         <ul className="text-sm  transition-all duration-500">
           <li className="mb-6">
             <Link to="/"
@@ -60,7 +60,7 @@ const Footer = () => {
       </div>
       {/*End Col*/}
       <div className="lg:mx-auto text-left ">
-        <h4 className="text-lg text-amber-600  mb-7">Products</h4>
+        <h4 className="text-lg text-[#FC7E01]  mb-7">Products</h4>
         <ul className="text-sm  transition-all duration-500">
           <li className="mb-6">
             <Link to="/cars"
@@ -87,7 +87,7 @@ const Footer = () => {
       </div>
       {/*End Col*/}
       <div className="lg:mx-auto text-left ">
-        <h4 className="text-lg text-amber-600  mb-7">Support</h4>
+        <h4 className="text-lg text-[#FC7E01]  mb-7">Support</h4>
         <ul className="text-sm  transition-all duration-500">
           <li className="mb-6">
             <Link to="/contact"
@@ -114,12 +114,12 @@ const Footer = () => {
       </div>
       {/*End Col*/}
       <div className="lg:mx-auto text-left ">
-        <h4 className="text-lg text-amber-600 mb-7">Subscribe</h4>
+        <h4 className="text-lg text-[#FC7E01] mb-7">Subscribe</h4>
         <p className="text-sm text-white leading-6 mb-7">
           Subscribe to get the latest news from us
         </p>
         <p
-          className="flex items-center justify-center gap-2 border border-amber-600 hover:text-white rounded-full py-3 px-6 w-fit lg:mx-0  text-sm text-amber-600 font-semibold bg-white transition-all duration-500 hover:bg-amber-600"
+          className="flex items-center justify-center gap-2 border border-[#FC7E01] hover:text-white rounded-full py-3 px-6 w-fit lg:mx-0  text-sm text-[#FC7E01] font-semibold bg-white transition-all duration-500 hover:bg-amber-600"
         >
           Subscribe
           <FaArrowRightLong />
