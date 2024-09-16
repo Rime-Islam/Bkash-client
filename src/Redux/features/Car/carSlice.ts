@@ -1,27 +1,29 @@
-import { RootState } from '../../app/store';
-import { TFormInput } from './../../../type/Types';
+import { CarState, TCar } from '../../../type/Types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from '../../app/store';
 
 
-type TCarslice = {
-    car: TFormInput[];
-    updateCar: TFormInput[];
-};
-
-const initialState: TCarslice = {
+const initialState: CarState = {
     car: [],
     updateCar: [],
+    filteredCars: [],
+    filters: {
+        carType: "",
+        priceRange: [0, 5000],
+        color: "",
+        features: [],
+    },
 };
 
-export const carSlice = createSlice({
-    name: "Cars",
+ const carSlice = createSlice({
+    name: "cars",
     initialState,
     reducers: {
-        getAllCar: (state, action: PayloadAction<TFormInput[]>) => {
+        setAllCar: (state, action: PayloadAction<TCar[]>) => {
             const totalCar = action.payload;
             console.log(totalCar)
             const filterCar = totalCar?.filter(
-                item => item.status !== "unavailable"
+                (item) => item.status !== "unavailable"
             );
             state.car = filterCar;
         },
@@ -31,9 +33,11 @@ export const carSlice = createSlice({
     },
 });
 
-export const { getAllCar, carUpdate } = carSlice.actions;
 
-export const useCar = (state: RootState) => state.cars;
-export const useUpdate = (state: RootState) => state.cars.updateCar;
 
+
+export const { setAllCar } = carSlice.actions;
 export default carSlice.reducer;
+
+export const useCar = (state: RootState) => state.car.car;
+// export const useCurrentUser = (state: RootState) => state.auth.user;

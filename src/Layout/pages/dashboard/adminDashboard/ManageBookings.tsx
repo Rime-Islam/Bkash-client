@@ -1,17 +1,28 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../../../Redux/app/hook";
-import { useCar } from "../../../../Redux/features/Car/carSlice";
+import { useGetAllCarQuery } from "../../../../Redux/features/Car/carApi";
+import { TCar } from "../../../../type/Types";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 
 const ManageBookings = () => {
-  const availableCars = useAppSelector(useCar);
-  console.log(availableCars)
+  const { data, isLoading } = useGetAllCarQuery(undefined);
+  const car = data?.data?.cars
+
+  if (isLoading) {
+    return <div className="text-center font-semibold text-xl my-5">Loading...</div>
+  }
+
+  const handleDelete = (_id: string | undefined) => {
+console.log(_id)
+  } ;
+
 
     return (
-        <div>
-        <div className="flex mt-5 gap-5 md:gap-8 justify-evenly">
+        <div className="flex justify-center">
+        <div className="flex mt-5 gap-5 md:gap-8 ">
           {/* create product button  */}
-          <div className="mt-8">
+          <div className="md:mt-10 ">
           <Link
           to="/dashboard/create_car">
           <button className="px-6 py-2 min-w-[120px] text-center text-white bg-[#FC7E01] hover:bg-amber-600 border border-[#FC7E01] rounded"
@@ -48,38 +59,43 @@ const ManageBookings = () => {
       Car Type
       </th>
       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-        Delete
+        Edit
       </th>
       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-        Edit
+        Delete
       </th>
     </tr>
   </thead>
   <tbody className="bg-white divide-y divide-gray-200">
-      {/* {
-      currentPage?.map((product: TProductProps) => (
+      {
+     car.length && car.map((product: TCar, index: number) => (
   <tr key={product._id}>
+          <td className="px-6 py-4 ">
+            {index + 1}
+          </td>
           <td className="px-6 py-4 whitespace-nowrap">
             <img src={product?.image} alt="image"  className="w-8 h-8 md:w-12 md:h-12 bg-gray-800 rounded-full"/>
           </td>
-        <td className="px-6 py-4 whitespace-nowrap">{product?.title}</td>
-        <td className="px-6 py-4 whitespace-nowrap">{product?.price}</td>
-        <td className="px-6 py-4 whitespace-nowrap">{product?.category}</td>
+        <td className="px-6 py-4 whitespace-nowrap">{product?.name}</td>
+        <td className="px-6 py-4 whitespace-nowrap">{product?.pricePerHour}</td>
+        <td className="px-6 py-4 whitespace-nowrap">{product?.color}</td>
+        <td className="px-6 py-4 whitespace-nowrap">{product?.status}</td>
+        <td className="px-6 py-4 whitespace-nowrap">{product?.type}</td>
         <td className="px-6 py-4 whitespace-nowrap">
-        <Link to={`/edit-product/${product?._id}`}>
-        <button className="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
-            Edit
+        <Link to={`update_car/${product?._id}`}>
+        <button className="px-2.5 py-2.5 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
+        <FaEdit className="w-5 h-5"/>
           </button>
         </Link>
           </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-        <button onClick={() => handleDelete(product._id)} className="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
-            Delete
+        <td className="px-3 py-4 whitespace-nowrap">
+        <button onClick={() => handleDelete(product._id)} className="ml-2 px-2 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
+           <MdDelete className="w-6 h-6"/>
           </button>
           </td>
   </tr>
        ))
-      } */}
+      }
   </tbody>
 </table>
             </div>

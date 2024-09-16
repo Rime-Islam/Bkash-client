@@ -1,7 +1,7 @@
 import { baseApi } from "../Api/baseApi";
 
 
-const carApi = baseApi.injectEndpoints({
+const CarApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         createACar: builder.mutation({
             query: (body) => ({
@@ -51,5 +51,5 @@ export const {
     useGetSingleCarQuery,
     useDeleteACarMutation,
 
- } = carApi;
+ } = CarApi;
 

@@ -3,17 +3,21 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowDown } from "react-icons/io";
 import { TFormInput } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
-import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
+import { useCreateACarMutation } from "../../../../Redux/features/Car/CarApi";
 import Swal from "sweetalert2";
 
 
 const UpdateCar = () => {
     const { register, handleSubmit } = useForm<TFormInput>();
     const [status, setStatus] = useState('available');
+    const [type, setType] = useState('SUV');
     const [ createACar, { isLoading }] = useCreateACarMutation();
 
     const handleSelect = (value: string) => {
         setStatus(value);
+    };
+    const handleSelectType = (value: string) => {
+      setType(value);
     };
   
     const onSubmit: SubmitHandler<TFormInput> = async(data) => {
@@ -75,17 +79,32 @@ Create A Product
   />
 </div>
 <div className="mb-4 flex-1">
-  <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+  <h3 className="block text-gray-700 font-bold mb-2">
     Type
-  </label>
-  <input
-    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    id="type"
-    type="text"
-    placeholder="Enter Car Type"
-    {...register("type", { required: true })}
-    required
-  />
+  </h3>
+  <div className="shadow  appearance-none border rounded h-10 text-gray-700">  
+    <div className="group relative cursor-pointer py-2">
+        <div className="flex items-center justify-between space-x-5 bg-white px-4">
+        <p className="menu-hover block text-gray-700 font-bold ">
+            {type}
+        </p>
+        <span>
+        <IoIosArrowDown />
+        </span>
+        </div>
+        <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
+        <p onClick={() => handleSelectType('SUV')} className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+        SUV
+        </p>
+        <p onClick={() => handleSelectType('Sedan')} className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+        Sedan
+        </p>
+        <p onClick={() => handleSelectType('hybrid')} className=" block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+        Hybrid
+        </p>
+        </div>
+    </div>
+    </div>
 </div>
 </div>
 

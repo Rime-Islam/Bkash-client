@@ -7,7 +7,7 @@ const About = () => {
             {/* section 1  */}
             <div>
                 <img className="w-full h-[70vh]" src="/about.jpg" alt="about us image" />
-                <div className="text-3xl text-white font-bold absolute top-[66vh] left-[45vw]">About Us!</div>
+                <div className="text-3xl text-white font-bold absolute top-[56vh] left-[45vw]">About Us!</div>
             </div>
                     {/* section 2 */}
         <section className="">

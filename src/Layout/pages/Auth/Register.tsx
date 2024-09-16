@@ -3,24 +3,18 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useRegisterUserMutation } from "../../../Redux/features/Auth/authApi";
+import { TUser } from "../../../type/Types";
 
 
-type TFormInput = {
-  name: string;
-  email: string;
-  createPassword: string;
-  confirmPassword: string;
-  phone: string;
-  address: string;
-};
+
 
 const Register = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [ registerUser, { isLoading } ] = useRegisterUserMutation();
-  const { register, handleSubmit } = useForm<TFormInput>();
+  const { register, handleSubmit } = useForm<TUser>();
 
-    const onSubmit: SubmitHandler<TFormInput> = async(data) => {
+    const onSubmit: SubmitHandler<TUser> = async(data) => {
       
         if (data.createPassword !== data.confirmPassword) {
           Swal.fire({

@@ -88,7 +88,7 @@ const router = createBrowserRouter([
           element: <CreateCar />,
         },
         {
-          path: "update_car",
+          path: "manage_booking/update_car/:id",
           element: <UpdateCar />,
         },
         {
