@@ -1,4 +1,4 @@
-import { CarState, TCar } from '../../../type/Types';
+import { CarState, Filters, TCar } from '../../../type/Types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from '../../app/store';
 
@@ -21,7 +21,7 @@ const initialState: CarState = {
     reducers: {
         setAllCar: (state, action: PayloadAction<TCar[]>) => {
             const totalCar = action.payload;
-            console.log(totalCar)
+    
             const filterCar = totalCar?.filter(
                 (item) => item.status !== "unavailable"
             );
@@ -30,14 +30,29 @@ const initialState: CarState = {
         carUpdate: (state, action) => {
             state.updateCar = action.payload;
         },
+        setFilters: (state, action: PayloadAction<Partial<Filters>>) => {
+            state.filters = { ...state.filters, ...action.payload };
+        },
+        filterCars: (state) => {
+            state.filteredCars = state.car.filter((item) => {
+                const matchType = state.filters.carType ? item.name.toLowerCase().includes(state.filters.carType.toLowerCase()) : true;
+                const matchColor = state.filters.color ? item.name.toLowerCase().includes(state.filters.color.toLowerCase()) : true;
+
+                const matchPrice = item.pricePerHour >= state.filters.priceRange[0] && item.pricePerHour <= state.filters.priceRange[1];
+
+            return matchType && matchPrice && matchColor;
+
+            });
+        },
     },
 });
 
 
 
 
-export const { setAllCar } = carSlice.actions;
+export const { setAllCar, carUpdate, setFilters, filterCars } = carSlice.actions;
 export default carSlice.reducer;
 
 export const useCar = (state: RootState) => state.car.car;
-// export const useCurrentUser = (state: RootState) => state.auth.user;
+export const useUpdate = (state: RootState) => state.car.updateCar;
+export const filteredCars = (state: RootState) => state.car.filteredCars;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowDown } from "react-icons/io";
-import { TFormInput } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
 import { useCreateACarMutation } from "../../../../Redux/features/Car/CarApi";
 import Swal from "sweetalert2";
