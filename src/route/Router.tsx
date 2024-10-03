@@ -20,6 +20,9 @@ import UpdateCar from "../Layout/pages/dashboard/adminDashboard/UpdateCar";
 import ManageBookings from "../Layout/pages/dashboard/adminDashboard/ManageBookings";
 import ManageReturn from "../Layout/pages/dashboard/adminDashboard/ManageReturn";
 import UserManagement from "../Layout/pages/dashboard/adminDashboard/UserManagement";
+import BookingManagement from "../Layout/pages/dashboard/userDashboard/BookingManagement";
+import BookingHistory from "../Layout/pages/dashboard/userDashboard/BookingHistory";
+import Payment from "../Layout/pages/dashboard/userDashboard/Payment";
 
 
 
@@ -68,11 +71,7 @@ const router = createBrowserRouter([
         {
           path: "/terms",
           element: <Terms />,
-        },
-        {
-          path: "/booking",
-          element: <Booking />,
-        },
+        }
       ]
     },
     {
@@ -102,6 +101,18 @@ const router = createBrowserRouter([
         {
           path: "user_management",
           element: <UserManagement />,
+        },
+        {
+          path: "booking",
+          element: <BookingManagement />,
+        },
+        {
+          path: "booking_history",
+          element: <BookingHistory />,
+        },
+        {
+          path: "payment",
+          element: <Payment />,
         },
       ]
     }

@@ -1,4 +1,5 @@
 import { FaCaretRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Extra = () => {
     return (
@@ -13,8 +14,8 @@ const Extra = () => {
       </p>
       <p className="mt-6 font-light flex gap-2"><FaCaretRight className="mt-1.5 text-[#FC7E01]"/> Sports and Luxury Cars</p>
       <p className="mt-4 font-light flex gap-2"><FaCaretRight className="text-[#FC7E01] mt-1.5" /> Economy Cars</p>
+        <Link to="/cars">
         <button
-          type="button"
           className=" my-8
                 py-3 px-7 rounded-full
                 bg-[#FC7E01]
@@ -23,6 +24,7 @@ const Extra = () => {
         >
           Get Started
         </button>
+        </Link>
     </div>
     <div className="flex-1">
       <div className="flex justify-center">

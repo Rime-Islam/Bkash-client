@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowDown } from "react-icons/io";
 import { TCar } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
-import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
+import { useCreateACarMutation } from "../../../../Redux/features/Car/CarApi";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 

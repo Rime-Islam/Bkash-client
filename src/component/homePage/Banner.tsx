@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -21,9 +22,10 @@ const Banner = () => {
         <p className="text-white mb-8 mt-4">
           Where Every Trip Begins with the perfect Ride. Start your journey with confidence - choose from our premium car rentals!
         </p>
+        <Link to='/cars'>
         <button className="px-6 py-2 min-w-[120px] text-center text-white bg-[#FC7E01] rounded hover:text-[#FC7E01] hover:bg-white">
             Book Now
-        </button>
+        </button></Link>
       </div>
     </div>
   </div>

@@ -1,15 +1,15 @@
-import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
-import { useGetSingleCarQuery } from "../../Redux/features/Car/carApi";
+import { Link, useParams } from "react-router-dom";
+import { useAppDispatch } from "../../Redux/app/hook";
+import { useGetSingleCarQuery } from "../../Redux/features/Car/CarApi";
 import { TCar } from "../../type/Types";
 import { useState } from "react";
 import ReactImageMagnify from 'react-image-magnify';
-import { useCar } from "../../Redux/features/Car/CarSlice";
+import { bookedCar } from "../../Redux/features/Book/BookSlice";
+
 
 const CarDetails = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const useAllCar = useAppSelector(useCar);
   const { data, isLoading } = useGetSingleCarQuery(id);
   const [selectFeature, setSelectFeature] = useState<string[]>([]);
 
@@ -31,10 +31,11 @@ const handleFeatures = ( feature: string ) => {
 
   setSelectFeature(addedFeatures);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const addedCar: any = { ...car, additionalFeatures: addedFeatures };
 
-}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const addedCar: any = { ...car, additionalFeatures: addedFeatures };
+  dispatch(bookedCar(addedCar));
+};
 
 
 
@@ -92,12 +93,11 @@ const handleFeatures = ( feature: string ) => {
         </div>
         <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500 text-sm">{car?.description}</span></div>
       <div className="flex mb-4 text-sm font-medium">
-        <button
-          type="button"
-          className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg "
-        >
+        <Link to='/dashboard/booking'>
+        <button className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
           Book now
         </button>
+        </Link>
       </div>
     
     </div>

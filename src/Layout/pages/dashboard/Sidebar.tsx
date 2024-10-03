@@ -75,7 +75,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               user?.role === "user" && <>
                     <li>
                       <NavLink
-                                      to="/dashboard/create_car"
+                                      to="/dashboard/booking_history"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
@@ -84,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                    </li>
                   <li>
                       <NavLink
-                                      to="/dashboard/manage_booking"
+                                      to="/dashboard/booking"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
@@ -93,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                    </li>
                   <li>
                       <NavLink
-                                      to="/dashboard/manage_return_car"
+                                      to="/dashboard/payment"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
