@@ -12,11 +12,13 @@ const CarApi = baseApi.injectEndpoints({
             invalidatesTags: ["cars"],
         }),
         updateACar: builder.mutation({
-            query: ({ id, data }) => ({
+            query: ({ id, Data}) => {
+                   return {
                     url: `/cars/${id}`,
                     method: "PUT",
-                    body: data,
-            }),
+                    body: Data,
+                   }
+            },
             invalidatesTags: ["cars"],
         }),
         getAllCar: builder.query({

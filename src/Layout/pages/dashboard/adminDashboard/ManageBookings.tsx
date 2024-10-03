@@ -37,7 +37,7 @@ const handleDelete = async (carId: string | undefined) => {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "An Error occured"
+            text:  "An Error occured"
           });
          }
        

@@ -4,15 +4,20 @@ import { IoIosArrowDown } from "react-icons/io";
 import { uploadImage } from "../../../../hook/UploadImage";
 import Swal from "sweetalert2";
 import { TCar } from "../../../../type/Types";
-import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
+import { useGetSingleCarQuery, useUpdateACarMutation } from "../../../../Redux/features/Car/carApi";
+import { useParams } from 'react-router-dom';
+
 
 
 const UpdateCar = () => {
+  const { id } = useParams();
+  const { data} = useGetSingleCarQuery(id);
+ const car = data?.data;
+
     const { register, handleSubmit } = useForm<TCar>();
     const [status, setStatus] = useState('available');
     const [type, setType] = useState('SUV');
-    const [ createACar, { isLoading }] = useCreateACarMutation();
-
+    const [ updateACar, { isLoading }] = useUpdateACarMutation();
     const handleSelect = (value: string) => {
         setStatus(value);
     };
@@ -20,10 +25,10 @@ const UpdateCar = () => {
       setType(value);
     };
   
-    const onSubmit: SubmitHandler<TCar> = async(data) => {
+    const onSubmit: SubmitHandler<TCar> = async (data) => {
         const imageFile = data.image[0];
         const uploadedImageURL = await uploadImage(imageFile); 
-        
+  
       const featuresArray = data.features.split(',').map((feature: string) => feature.trim());
       
       const isElectric = data.isElectric === true;
@@ -31,19 +36,19 @@ const UpdateCar = () => {
 
          const name = data.name;
           const features = featuresArray;
-          const type = data.type;
           const color = data.color;
           const image = uploadedImageURL;
           const description = data.description;
+const Data= {
+  name, features, type, color, image, isElectric, pricePerHour, description, status
+}
 
-        const res = await createACar( {
-         name, features, type, color, image, isElectric, pricePerHour, description, status,
-        });
+        const res = await updateACar({ id, Data}).unwrap();
         console.log(res)
-        if (res?.data?.success){
+        if (res?.success){
           Swal.fire({
             icon: "success",
-            title: res.data.message,
+            title: res.message,
             showConfirmButton: false,
             timer: 1500
           })
@@ -51,7 +56,7 @@ const UpdateCar = () => {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: res?.error?.data?.message || "An Error occured"
+            text: res?.error?.message || "An Error occured"
           });
          }
          
@@ -74,8 +79,8 @@ Create A Product
     id="name"
     type="text"
     placeholder="Enter A Car Name"
-    {...register("name", { required: true })}
-    required
+    {...register("name")}
+    defaultValue={car?.name}
   />
 </div>
 <div className="mb-4 flex-1">
@@ -118,8 +123,8 @@ Create A Product
     id="color"
     type="text"
     placeholder="Enter Car Color"
-    {...register("color", { required: true })}
-    required
+    {...register("color")}
+    defaultValue={car?.color}
   />
 </div>
 
@@ -132,8 +137,8 @@ Create A Product
     id="features"
     type="text"
     placeholder="Enter Car Features"
-    {...register("features", { required: true })}
-    required
+    {...register("features")}
+     defaultValue={car?.features}
   />
 </div>
 </div>
@@ -148,8 +153,8 @@ Create A Product
     id="pricePerHour"
     type="number"
     placeholder="Enter Car Price Per Hour"
-    {...register("pricePerHour", { required: true })}
-    required
+    {...register("pricePerHour")}
+    defaultValue={car?.pricePerHour}
   />
 </div>
  {/* status section  */}
@@ -193,7 +198,7 @@ Create A Product
     type="file"
     className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-[#70AABD] file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-teal-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60"
     {...register("image", { required: true })}
-    required
+    
   />
 </div>
 
@@ -229,8 +234,8 @@ Create A Product
     id="description"
     rows={4}
     placeholder="Enter additional information"
-    {...register("description", { required: true })}
-    required
+    {...register("description")}
+    defaultValue={car?.description}
   />
 </div>
 
@@ -240,7 +245,7 @@ Create A Product
     type="submit"
   >
     {
-      isLoading ? <span>Creating...</span> : <span>Create</span>
+      isLoading ? <span>Updating...</span> : <span>Update</span>
     }
   </button>
 </div>
