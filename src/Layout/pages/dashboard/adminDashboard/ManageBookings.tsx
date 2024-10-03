@@ -1,21 +1,52 @@
 import { Link } from "react-router-dom";
-import { useGetAllCarQuery } from "../../../../Redux/features/Car/carApi";
+import { useDeleteACarMutation, useGetAllCarQuery } from "../../../../Redux/features/Car/carApi";
 import { TCar } from "../../../../type/Types";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 const ManageBookings = () => {
   const { data, isLoading } = useGetAllCarQuery(undefined);
-  const car = data?.data?.cars
+  const car = data?.data?.cars;
+  const [deleteCar] = useDeleteACarMutation();
 
   if (isLoading) {
     return <div className="text-center font-semibold text-xl my-5">Loading...</div>
   }
 
-  const handleDelete = (_id: string | undefined) => {
-console.log(_id)
-  } ;
+const handleDelete = async (carId: string | undefined) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then( async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteCar({ carId }).unwrap();
+         if (res?.data?.success) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+         } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "An Error occured"
+          });
+         }
+       
+      }
+    });
+   
+
+  
+} 
 
 
     return (

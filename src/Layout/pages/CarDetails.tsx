@@ -1,78 +1,92 @@
+import { useParams } from "react-router-dom";
+import { useAppDispatch } from "../../Redux/app/hook";
+import { useGetSingleCarQuery } from "../../Redux/features/Car/carApi";
+import { TCar } from "../../type/Types";
+import { useState } from "react";
+import ReactImageMagnify from 'react-image-magnify';
 
 const CarDetails = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const { data, isLoading } = useGetSingleCarQuery(id);
+  const [selectedFeatures, setSelectedFeature] = useState<string[]>([]);
+
+  if(isLoading) {
+    return <div className="text-center font-semibold text-xl my-5">Loading...</div>
+}
+
+const car: TCar = data?.data;
+const additionalFeatures = ["Insurance", "GPS", "Child seat"];
+
+
+
+
+
     return (
+      <div className="flex justify-center mt-12">
+        <div className="flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12">
+  <div className="flex bg-white rounded-lg shadow dark:bg-gray-800 flex-col md:flex-row">
+    <div className=" w-full md:w-96 flex justify-center items-center">
+    <div className="rounded-lg w-96 dark:bg-gray-700 mb-4">
+      <ReactImageMagnify
+         {
+          ...{
+            smallImage: {
+              alt: 'Image description',
+              isFluidWidth: true,
+              src: car?.image,
+            },
+            largeImage: {
+              src: car?.image,
+              width: 1600,
+              height: 800,
+            },
+            enlargedImagePosition: 'over',
+            enlargedImageContainerStyle: { zIndex: '150'},
+          }
+         }
+      />
+    </div>
+    </div>
+    <div className="flex-auto p-6">
+      <div className="flex flex-wrap">
+        <h1 className="flex-auto text-2xl font-semibold dark:text-gray-50">
+          {car?.name}
+        </h1>
+        <div className="text-xl ml-10 font-semibold text-gray-500 dark:text-gray-300">
+          {car?.pricePerHour}/-
+        </div>
+        </div>
+        <div className="text-gray-900 text-lg font-semibold">Color: <span className="text-medium font-normal">{car?.color}</span></div>
+        <div className="text-gray-900 text-lg font-semibold">Type: <span className="text-medium font-normal">{car?.type}</span></div>
+        <div className="text-gray-900 text-lg font-semibold py-4"> <span className="text-medium font-normal">{car?.isElectric === "true" ? <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#D9A1A7]">Electric</span> : <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#8a436a]">Not Electric</span>}</span></div>
+        <div className="text-gray-900 text-lg font-semibold">Status: <span className="text-medium font-normal">{car?.status}</span></div>
+        <div className="text-gray-900 text-lg font-semibold mb-3">Feature:
+          <span className="text-medium font-normal">{car?.features.map((feature, index) => (
+            <li key={index} className="text-gray-600 text-sm">{feature}</li>
+        ))}</span></div>
         <div>
-            <div className="bg-gray-100 dark:bg-gray-800 py-8">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col md:flex-row -mx-4">
-      <div className="md:flex-1 px-4">
-        <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-          <img
-            className="w-full h-full object-cover"
-            src=""
-            alt="Product Image"
-          />
+          <h2 className="text-xl text-gray-900 font-semibold">Choose Additional Features</h2>
+          <div>{additionalFeatures.map((feature) => (
+            <label key={feature} className="flex items-center"></label>
+          ))}</div>
         </div>
-        <div className="flex -mx-2 mb-4">
-          <div className="w-1/2 px-2">
-            <button className="w-full bg-[#003856] hover:bg-[#02588a] text-white py-2 px-4 rounded-full font-bold ">
-              Add to Cart
-            </button>
-          </div>
-          <div className="w-1/2 px-2">
-            <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
-              Add to Wishlist
-            </button>
-          </div>
-        </div>
+        <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500">{car?.description}</span></div>
+      <div className="flex mb-4 text-sm font-medium">
+        <button
+          type="button"
+          className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg "
+        >
+          Book now
+        </button>
       </div>
-      <div className="md:flex-1 px-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-       
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-     
-        </p>
-        <div className="flex mb-4">
-          <div className="mr-4">
-            <span className="font-bold text-gray-700 dark:text-gray-300">
-              Price:
-            </span>
-            <span className="text-gray-600 dark:text-gray-300 ">$</span>
-          </div>
-          <div>
-            <span className="font-bold text-gray-700 dark:text-gray-300">
-              Availability:
-            </span>
-            <span className="text-gray-600 dark:text-gray-300"></span>
-          </div>
-        </div>
-        <div className="mb-4">
-          <span className="font-bold text-gray-700 dark:text-gray-300 mr-2">
-            Brand: 
-          </span>
-     
-        </div>
-        <div className="mb-4">
-          <span className="font-bold text-gray-700 dark:text-gray-300 mr-2">
-            Category:
-           </span>
-        
-        </div>
-        <div>
-          <span className="font-bold text-gray-700 dark:text-gray-300">
-            Product Description:
-          </span>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-       
-          </p>
-        </div>
-      </div>
+    
     </div>
   </div>
 </div>
 
-        </div>
+      </div>
+    
     );
 };
 

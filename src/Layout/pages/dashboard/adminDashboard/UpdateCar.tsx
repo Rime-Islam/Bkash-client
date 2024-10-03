@@ -2,12 +2,13 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowDown } from "react-icons/io";
 import { uploadImage } from "../../../../hook/UploadImage";
-import { useCreateACarMutation } from "../../../../Redux/features/Car/CarApi";
 import Swal from "sweetalert2";
+import { TCar } from "../../../../type/Types";
+import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
 
 
 const UpdateCar = () => {
-    const { register, handleSubmit } = useForm<TFormInput>();
+    const { register, handleSubmit } = useForm<TCar>();
     const [status, setStatus] = useState('available');
     const [type, setType] = useState('SUV');
     const [ createACar, { isLoading }] = useCreateACarMutation();
@@ -19,13 +20,13 @@ const UpdateCar = () => {
       setType(value);
     };
   
-    const onSubmit: SubmitHandler<TFormInput> = async(data) => {
+    const onSubmit: SubmitHandler<TCar> = async(data) => {
         const imageFile = data.image[0];
         const uploadedImageURL = await uploadImage(imageFile); 
         
-      const featuresArray = data.features.split(',').map(feature => feature.trim());
+      const featuresArray = data.features.split(',').map((feature: string) => feature.trim());
       
-      const isElectric = data.isElectric === "true";
+      const isElectric = data.isElectric === true;
       const pricePerHour = Number(data.pricePerHour);
 
          const name = data.name;
