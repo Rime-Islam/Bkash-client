@@ -27,7 +27,7 @@ const handleDelete = async (carId: string | undefined) => {
     }).then( async (result) => {
       if (result.isConfirmed) {
         const res = await deleteCar({ carId }).unwrap();
-         if (res?.data?.success) {
+         if (res?.success) {
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -99,7 +99,7 @@ const handleDelete = async (carId: string | undefined) => {
   </thead>
   <tbody className="bg-white divide-y divide-gray-200">
       {
-     car.length && car.map((product: TCar, index: number) => (
+     car?.length && car?.map((product: TCar, index: number) => (
   <tr key={product._id}>
           <td className="px-6 py-4 ">
             {index + 1}

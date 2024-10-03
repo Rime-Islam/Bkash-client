@@ -15,7 +15,7 @@ const CarApi = baseApi.injectEndpoints({
             query: ({ id, Data}) => {
                    return {
                     url: `/cars/${id}`,
-                    method: "PUT",
+                    method: "PATCH",
                     body: Data,
                    }
             },

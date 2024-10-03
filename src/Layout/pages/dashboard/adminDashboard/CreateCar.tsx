@@ -5,6 +5,7 @@ import { TCar } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
 import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const CreateCar = () => {
@@ -12,7 +13,7 @@ const CreateCar = () => {
     const [status, setStatus] = useState('available');
     const [type, setType] = useState('SUV');
     const [ createACar, { isLoading }] = useCreateACarMutation();
-
+    const navigate = useNavigate();
     const handleSelect = (value: string) => {
         setStatus(value);
     };
@@ -33,7 +34,6 @@ const CreateCar = () => {
 
          const name = data.name;
           const features = featuresArray;
-          const type = data.type;
           const color = data.color;
           const image = uploadedImageURL;
           const description = data.description;
@@ -48,6 +48,8 @@ const CreateCar = () => {
             title: res.data.message,
             showConfirmButton: false,
             timer: 1500
+          }).then(() => {
+            navigate('/dashboard/manage_booking');
           })
          } else {
           Swal.fire({
@@ -208,11 +210,11 @@ Create A Product
   <h4 className="  text-gray-700 font-bold">Is Electrict</h4>
   <div className="flex gap-3">
     <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2 hover:bg-[#A3CADB] cursor-pointer ">
-      <input type="radio" {...register("isElectric", { required: true })} value="true" />
+      <input type="radio" {...register("isElectric", { required: true })} required value="true" />
       <i className="pl-2 text-sm">Yes</i>
     </label>
     <label className=" bg-gray-100 text-gray-700 rounded-md px-3 py-1 my-2  hover:bg-[#A3CADB] cursor-pointer ">
-      <input type="radio" {...register("isElectric", { required: true })} value="false"/>
+      <input type="radio" {...register("isElectric", { required: true })} required value="false"/>
       <i className="pl-2 text-sm">No</i>
     </label>
  

@@ -5,11 +5,12 @@ import { uploadImage } from "../../../../hook/UploadImage";
 import Swal from "sweetalert2";
 import { TCar } from "../../../../type/Types";
 import { useGetSingleCarQuery, useUpdateACarMutation } from "../../../../Redux/features/Car/carApi";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
 const UpdateCar = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data} = useGetSingleCarQuery(id);
  const car = data?.data;
@@ -28,21 +29,22 @@ const UpdateCar = () => {
     const onSubmit: SubmitHandler<TCar> = async (data) => {
         const imageFile = data.image[0];
         const uploadedImageURL = await uploadImage(imageFile); 
-  
+        console.log(data)
       const featuresArray = data.features.split(',').map((feature: string) => feature.trim());
       
-      const isElectric = data.isElectric === true;
-      const pricePerHour = Number(data.pricePerHour);
+      const isElectric = data.isElectric  === true || car?.isElectric === true;
+      const pricePerHour = Number(data.pricePerHour) || car?.pricePerHour
+      ;
 
-         const name = data.name;
-          const features = featuresArray;
-          const color = data.color;
+         const name = data.name || car?.name;
+          const features = featuresArray || car?.features;
+          const color = data.color || car?.color;
           const image = uploadedImageURL;
-          const description = data.description;
+          const description = data.description || car?.description;
 const Data= {
   name, features, type, color, image, isElectric, pricePerHour, description, status
 }
-
+console.log(Data)
         const res = await updateACar({ id, Data}).unwrap();
         console.log(res)
         if (res?.success){
@@ -51,6 +53,8 @@ const Data= {
             title: res.message,
             showConfirmButton: false,
             timer: 1500
+          }).then(() => {
+            navigate('/dashboard/manage_booking');
           })
          } else {
           Swal.fire({
@@ -153,7 +157,9 @@ Create A Product
     id="pricePerHour"
     type="number"
     placeholder="Enter Car Price Per Hour"
-    {...register("pricePerHour")}
+    min={1}
+    {...register("pricePerHour", { required: true })}
+    required
     defaultValue={car?.pricePerHour}
   />
 </div>
@@ -198,7 +204,7 @@ Create A Product
     type="file"
     className="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-[#70AABD] file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-teal-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60"
     {...register("image", { required: true })}
-    
+   required
   />
 </div>
 
