@@ -14,7 +14,7 @@ export type TCar = {
     type: ["SUV" | "Sedan" | "hybrid"];
     color: string;
     features: string[];
-    description: string | FileList;
+    description: string ;
     pricePerHour: number;
     image: string;
     isElectric: boolean;
@@ -35,3 +35,43 @@ export type TCar = {
     filteredCars: TCar[];
     filters: Filters;
   }
+
+  export interface Booking {
+    id: string;
+    date: string;
+    time: string;
+    status: "canceled" | "confirmed" | "pending";
+    approved: boolean;
+  }
+
+  export type TBookingForm = {
+    _id?: string;
+    nidOrPassport: string;
+    drivingLicense: string;
+    cardNumber: string;
+    exprirationDate: string;
+    cvv: string;
+    startTime: string;
+  }
+
+  export type TBook = {
+    _id?: string;
+    user?: string;
+    carId?: string;
+    endTime?: string;
+    totalCost?: number;
+    isBooked?: "unconfirmed" | "confirmed";
+    isDeleted?: boolean;
+    payment?: TBookingForm;
+  }
+
+  export interface BookingState {
+    bookings: Booking[];
+    booked: TBook[];
+    returnCar: TBook[];
+    bookedCar: TBookingForm[];
+    confirmBooking: unknown;
+    paymentInfo: unknown;
+  }
+
+

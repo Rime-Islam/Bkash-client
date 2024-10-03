@@ -1,15 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useAppDispatch } from "../../Redux/app/hook";
+import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
 import { useGetSingleCarQuery } from "../../Redux/features/Car/carApi";
 import { TCar } from "../../type/Types";
 import { useState } from "react";
 import ReactImageMagnify from 'react-image-magnify';
+import { useCar } from "../../Redux/features/Car/CarSlice";
 
 const CarDetails = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
+  const useAllCar = useAppSelector(useCar);
   const { data, isLoading } = useGetSingleCarQuery(id);
-  const [selectedFeatures, setSelectedFeature] = useState<string[]>([]);
+  const [selectFeature, setSelectFeature] = useState<string[]>([]);
 
   if(isLoading) {
     return <div className="text-center font-semibold text-xl my-5">Loading...</div>
@@ -18,7 +20,21 @@ const CarDetails = () => {
 const car: TCar = data?.data;
 const additionalFeatures = ["Insurance", "GPS", "Child seat"];
 
+const handleFeatures = ( feature: string ) => {
+  let addedFeatures: string[];
 
+  if (selectFeature.includes(feature)) {
+    addedFeatures = selectFeature.filter((fil) => fil !== feature);
+  } else {
+    addedFeatures = [...selectFeature, feature];
+  }
+
+  setSelectFeature(addedFeatures);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const addedCar: any = { ...car, additionalFeatures: addedFeatures };
+
+}
 
 
 
@@ -48,7 +64,7 @@ const additionalFeatures = ["Insurance", "GPS", "Child seat"];
       />
     </div>
     </div>
-    <div className="flex-auto p-6">
+    <div className="flex-1 p-6">
       <div className="flex flex-wrap">
         <h1 className="flex-auto text-2xl font-semibold dark:text-gray-50">
           {car?.name}
@@ -67,11 +83,14 @@ const additionalFeatures = ["Insurance", "GPS", "Child seat"];
         ))}</span></div>
         <div>
           <h2 className="text-xl text-gray-900 font-semibold">Choose Additional Features</h2>
-          <div>{additionalFeatures.map((feature) => (
-            <label key={feature} className="flex items-center"></label>
+          <div className="mb-4">{additionalFeatures.map((feature) => (
+            <label key={feature} className="flex items-center">
+              <input type="checkbox" value={feature} onChange={() => handleFeatures(feature)} />
+              <span className="ml-2">{feature}</span>
+            </label>
           ))}</div>
         </div>
-        <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500">{car?.description}</span></div>
+        <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500 text-sm">{car?.description}</span></div>
       <div className="flex mb-4 text-sm font-medium">
         <button
           type="button"

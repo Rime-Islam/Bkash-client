@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
 import { filterCars, filteredCars, setFilters } from "../../Redux/features/Car/CarSlice";
 import { useForm } from "react-hook-form";
-import { useGetAllCarQuery } from "../../Redux/features/Car/carApi";
+import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
 
 
 const Cars = () => {
