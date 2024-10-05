@@ -62,7 +62,6 @@ const handleDelete = async (carId: string | undefined) => {
           </button>
         </Link>
           </div>
-
             {/* all added products  */}
             <div>
             <table className="min-w-full divide-y divide-gray-200">
@@ -132,30 +131,7 @@ const handleDelete = async (carId: string | undefined) => {
             </div>
         </div>
          <div>
-         {/* pagination  */}
-         
-      {/* <nav className="my-8 md:my-12 flex justify-center space-x-4" aria-label="Pagination">
-      <span className="rounded-lg border border-[#003856] px-2 py-2 text-gray-700">
-          <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))}  ><IoIosArrowBack className="mt-2"/></button>
-      </span>
-  
-      
-      {[...Array(totalPages)].map((_, index) => {
-          const pageNumber = index +1;
-          return (
-            <a key={pageNumber} className={`rounded-lg border border-[#003856] px-4 py-2.5 
-              ${pageNumber === page ? 'bg-[#003856] text-white' : 'text-gray-700'}`}
-              href="#" onClick={(e) => {e.preventDefault(); setPage(pageNumber)}}>{pageNumber}</a>
-          );
-        })}
-      
-      <span className="rounded-lg border border-[#003856] px-2 py-2 text-gray-700">
-      <button onClick={() => setPage((prev) => Math.max(prev + 1))} disabled={page === totalPages}><IoIosArrowForward className="mt-2"/></button>
-      </span>
-      </nav> */}
-
       </div>
-      
         </div>
     );
 };
