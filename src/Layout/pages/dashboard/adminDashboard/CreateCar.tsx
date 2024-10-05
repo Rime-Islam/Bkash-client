@@ -41,7 +41,7 @@ const CreateCar = () => {
         const res = await createACar( {
          name, features, type, color, image, isElectric, pricePerHour, description, status,
         });
-        console.log(res)
+
         if (res?.data?.success){
           Swal.fire({
             icon: "success",

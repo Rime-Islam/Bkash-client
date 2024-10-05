@@ -75,11 +75,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               user?.role === "user" && <>
                     <li>
                       <NavLink
-                                      to="/dashboard/booking_history"
+                                      to="/dashboard/update_profile"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
-                          <IoIosCreate className="mt-1 mr-2.5"/>  Booking History
+                          <IoIosCreate className="mt-1 mr-2.5"/>Update Profile
                           </NavLink>
                    </li>
                   <li>

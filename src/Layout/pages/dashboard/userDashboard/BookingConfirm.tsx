@@ -23,7 +23,6 @@ const BookingConfirm = () => {
         };
 
         const res = await addBooked(bookedInfo).unwrap();
-   console.log(res)
         if (res?.success){
             Swal.fire({
               icon: "success",

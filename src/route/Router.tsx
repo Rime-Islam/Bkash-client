@@ -19,11 +19,12 @@ import UpdateCar from "../Layout/pages/dashboard/adminDashboard/UpdateCar";
 import ManageBookings from "../Layout/pages/dashboard/adminDashboard/ManageBookings";
 import ManageReturn from "../Layout/pages/dashboard/adminDashboard/ManageReturn";
 import UserManagement from "../Layout/pages/dashboard/adminDashboard/UserManagement";
-import BookingHistory from "../Layout/pages/dashboard/userDashboard/BookingHistory";
 import Payment from "../Layout/pages/dashboard/userDashboard/Payment";
 import BookingConfirm from "../Layout/pages/dashboard/userDashboard/BookingConfirm";
 import BookingManagement from "../Layout/pages/dashboard/userDashboard/BookingManagement";
 import Booking from "../Layout/pages/dashboard/userDashboard/Booking";
+import Profile from "../Layout/pages/dashboard/Profile";
+import UpdateProfile from "../Layout/pages/dashboard/userDashboard/UpdateProfile";
 
 
 
@@ -116,12 +117,16 @@ const router = createBrowserRouter([
           element: <BookingConfirm />,
         },
         {
-          path: "booking_history",
-          element: <BookingHistory />,
-        },
-        {
           path: "payment",
           element: <Payment />,
+        },
+        {
+          path: "profile",
+          element: <Profile />,
+        },
+        {
+          path: "update_profile",
+          element: <UpdateProfile />,
         },
       ]
     }
