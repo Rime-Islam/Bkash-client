@@ -6,7 +6,6 @@ import About from "../Layout/pages/About";
 import Cars from "../Layout/pages/Cars";
 import Contact from "../Layout/pages/Contact";
 import Terms from "../Layout/pages/Terms";
-import Booking from "../Layout/pages/Booking";
 import CarDetails from "../Layout/pages/CarDetails";
 import Register from "../Layout/pages/Auth/Register";
 import Login from "../Layout/pages/Auth/Login";
@@ -20,9 +19,11 @@ import UpdateCar from "../Layout/pages/dashboard/adminDashboard/UpdateCar";
 import ManageBookings from "../Layout/pages/dashboard/adminDashboard/ManageBookings";
 import ManageReturn from "../Layout/pages/dashboard/adminDashboard/ManageReturn";
 import UserManagement from "../Layout/pages/dashboard/adminDashboard/UserManagement";
-import BookingManagement from "../Layout/pages/dashboard/userDashboard/BookingManagement";
 import BookingHistory from "../Layout/pages/dashboard/userDashboard/BookingHistory";
 import Payment from "../Layout/pages/dashboard/userDashboard/Payment";
+import BookingConfirm from "../Layout/pages/dashboard/userDashboard/BookingConfirm";
+import BookingManagement from "../Layout/pages/dashboard/userDashboard/BookingManagement";
+import Booking from "../Layout/pages/dashboard/userDashboard/Booking";
 
 
 
@@ -104,7 +105,15 @@ const router = createBrowserRouter([
         },
         {
           path: "booking",
+          element: <Booking />
+        },
+        {
+          path: "booking_management",
           element: <BookingManagement />,
+        },
+        {
+          path: "booking_confirm",
+          element: <BookingConfirm />,
         },
         {
           path: "booking_history",

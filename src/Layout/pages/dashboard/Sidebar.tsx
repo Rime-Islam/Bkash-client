@@ -84,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                    </li>
                   <li>
                       <NavLink
-                                      to="/dashboard/booking"
+                                      to="/dashboard/booking_management"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
