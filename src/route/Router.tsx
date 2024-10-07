@@ -25,6 +25,7 @@ import BookingManagement from "../Layout/pages/dashboard/userDashboard/BookingMa
 import Booking from "../Layout/pages/dashboard/userDashboard/Booking";
 import Profile from "../Layout/pages/dashboard/Profile";
 import UpdateProfile from "../Layout/pages/dashboard/userDashboard/UpdateProfile";
+import PaymanetConfirm from "../Layout/pages/dashboard/userDashboard/PaymanetConfirm";
 
 
 
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
         {
           path: "payment",
           element: <Payment />,
+        },
+        {
+          path: "payment_confirmation",
+          element: <PaymanetConfirm />,
         },
         {
           path: "profile",

@@ -1,20 +1,43 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { TUser } from "../../../../type/Types";
 import { useAppDispatch, useAppSelector } from "../../../../Redux/app/hook";
-import { useCurrentUser } from "../../../../Redux/features/Auth/authSlice";
+import { setUser, useCurrentToken, useCurrentUser } from "../../../../Redux/features/Auth/authSlice";
 import { useUpdateUserMutation } from "../../../../Redux/features/User/UserApi";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
     const { register, handleSubmit } = useForm<TUser>();
     const dispatch = useAppDispatch();
     const user = useAppSelector(useCurrentUser);
     const { name, email, phone, address, _id: userId } = user || null;
+    const navigate = useNavigate();
 
+    const token = useAppSelector(useCurrentToken);
     const [ updateUser ] = useUpdateUserMutation();
+
+
     const onSubmit: SubmitHandler<TUser> = async (data) => {
         const res = await updateUser({ userId, data }).unwrap();
-        console.log(res)
-   
+       
+        if (res?.success){
+          const user = res.data;
+          dispatch(setUser({ user, token }))
+          Swal.fire({
+            icon: "success",
+            title: res.message,
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            navigate('/dashboard/profile');
+          })
+         } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: res?.error?.message || "An Error occured"
+          });
+         }
     }
 
     return (
@@ -40,7 +63,6 @@ Create A Product
   />
 </div>
 
-<div className="lg:flex gap-5">
 <div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="phone">
     Email Address
@@ -70,9 +92,6 @@ Create A Product
     required
   />
 </div>
-</div>
-
-<div className="lg:flex gap-5">
 <div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
     Your Address
@@ -95,7 +114,6 @@ Create A Product
   >
   Update Profile
   </button>
-</div>
 </div>
 </form>
 </div>

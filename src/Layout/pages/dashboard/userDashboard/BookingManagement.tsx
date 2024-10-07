@@ -7,7 +7,7 @@ const BookingManagement = () => {
   const { data } = useGetMyBookQuery(undefined);
   const booked = data?.data;
   const [deleteBook] = useDeleteBookMutation();
-
+console.log(booked)
 
   const handleDelete = async (bookedId: string | undefined) => {
     Swal.fire({

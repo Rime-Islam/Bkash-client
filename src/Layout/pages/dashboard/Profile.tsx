@@ -1,11 +1,17 @@
-import { useAppDispatch, useAppSelector } from "../../../Redux/app/hook";
+import { useAppSelector } from "../../../Redux/app/hook";
 import { useCurrentUser } from "../../../Redux/features/Auth/authSlice";
+import { useGetMyBookQuery } from "../../../Redux/features/Book/bookApi";
+
 
 
 const Profile = () => {
     const user = useAppSelector(useCurrentUser);
-    const myBooked = useAppDispatch();
     const { name, email, phone, address } = user || null;
+
+    const { data } = useGetMyBookQuery(undefined);
+   
+const bookData = data?.data;
+
     return (
         <div>
             <div className="bg-white overflow-hidden shadow rounded-lg border">
@@ -45,6 +51,42 @@ const Profile = () => {
       </div>
     </dl>
   </div>
+</div>
+
+<div className="py-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+  {
+    bookData ? (
+      bookData.map((item: any) => (
+        <div key={item._id} className="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-md">
+  <div className="relative">
+    <img
+      className="w-full h-44 object-cover"
+      src={item?.carId?.image}
+      alt="Image"
+    />
+    <div className="absolute top-0 right-0">
+      <div className="w-32 h-8 absolute top-4 -right-8">
+        <div className="h-full w-full bg-red-500 text-white text-center leading-8 font-semibold transform rotate-45">
+        {item?.carId?.pricePerHour}/-
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="p-4">
+    <h3 className="text-xl font-semibold mb-2">{item?.carId?.name}</h3>
+    <p className="text-gray-700 text-sm text-base">
+   <span className="font-semibold text-black">Start Time: </span> {item?.payment?.startTime}
+    </p>
+    <p className="text-gray-700 text-sm text-base">
+    <span className="font-semibold text-black">End Time:</span> {item?.payment?.exprirationDate}
+    </p>
+  </div>
+</div>
+      ))
+    ) : (
+      <div>No Booked Car Found</div>
+    )
+  }
 </div>
 
             

@@ -110,6 +110,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                       <ul>
               <li>
                       <NavLink
+                                      to="/"
+                                      className="flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" 
+                                      aria-current="page"
+                                      >
+                          <IoIosCreate className="mt-1 mr-2.5"/>  Home Page
+                          </NavLink>
+                   </li>
+              <li>
+                      <NavLink
                                       to="/dashboard/profile"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
