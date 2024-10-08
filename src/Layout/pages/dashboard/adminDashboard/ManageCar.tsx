@@ -115,7 +115,7 @@ const ManageCar = () => {
                 <p className="font-semibold text-green-600">Approved</p>
               ) : (
            product?.isBooked === "canceled" ? (
-            <p className="font-semibold text-red-600">Canceled</p>
+            <p className="text-semibold text-red-600">Canceled</p>
            ) : (     <div className="flex gap-2">
             <div><button onClick={() => handleApproved(product?._id)} className="border border-blue-600 rounded p-2 hover:bg-gray-300"><FcApproval className="w-6 h-6"/></button></div>
             <div><button onClick={() => handleCanceled(product?._id)} className="border border-red-600 rounded p-2 hover:bg-gray-300"><FcCancel className="w-6 h-6"/></button></div>
