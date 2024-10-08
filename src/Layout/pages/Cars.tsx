@@ -14,21 +14,21 @@ const Cars = () => {
     if(isLoading) {
         return <div className="text-center font-semibold text-xl my-5">Loading...</div>
     }
-console.log(filterCarFromState)
+
   const cars = data?.data.cars;
-  console.log(cars)
+
    
 
- const carTypes = ["SUV", "Sedan", "Hybrid"];
- const colors = ["Red", "Black", "White", "Blue", "Wine", "Yellow"];
- const prices = [500, 1000, 1500, 2000, 2500, 3000 ]
+//  const carTypes = ["SUV", "Sedan", "Hybrid"];
+//  const colors = ["Red", "Black", "White", "Blue", "Wine", "Yellow"];
+//  const prices = [500, 1000, 1500, 2000, 2500, 3000 ]
 
 
 
- const onSubmit = (filterCriteria: any) => {
-  dispatch(setFilters(filterCriteria));
-  dispatch(filterCars());
- };
+//  const onSubmit = (filterCriteria: any) => {
+//   dispatch(setFilters(filterCriteria));
+//   dispatch(filterCars());
+//  };
 
   return (
     <div className="pb-8 md:pb-12 lg:pb-16 px-4 md:px-8">
@@ -37,9 +37,9 @@ console.log(filterCarFromState)
 
 <div className="md:flex gap-2 lg:gap-4 lg:px-0">
    {/* filter section  */}
-<div>
+{/* <div>
 <form onSubmit={handleSubmit(onSubmit)}>
-{/* Car Type Filter */}
+
 <div className="mb-4">
             <label
               htmlFor="carType"
@@ -60,7 +60,7 @@ console.log(filterCarFromState)
               ))}
             </select>
           </div>
-{/* Car Color Filter */}
+
 <div className="mb-4">
             <label
               htmlFor="color"
@@ -81,7 +81,7 @@ console.log(filterCarFromState)
               ))}
             </select>
           </div>
-{/* Car Price Filter */}
+
 <div className="mb-4">
             <label
               htmlFor="pricePerHour"
@@ -106,7 +106,7 @@ console.log(filterCarFromState)
         <button  className="bg-[#FC7E01] w-full hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit">Filter</button>
         </form>
-</div>
+</div> */}
 
         {/* card section  */}
         <div className="pt-4 md:pt-8  mx-auto ">

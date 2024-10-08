@@ -37,7 +37,7 @@ const handleFeatures = ( feature: string ) => {
   dispatch(bookedCar(addedCar));
 };
 
-
+console.log(car)
 
     return (
       <div className="flex justify-center mt-12">
@@ -93,11 +93,17 @@ const handleFeatures = ( feature: string ) => {
         </div>
         <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500 text-sm">{car?.description}</span></div>
       <div className="flex mb-4 text-sm font-medium">
+     {
+      car.status === "unavailable" ? (
+        <div className="py-2 px-4 mt-5 bg-[#70AABD]  text-white w-full text-center text-base font-semibold shadow-md rounded-lg ">Not Available</div>
+      ) : (
         <Link to='/dashboard/booking'>
-        <button className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+        <button className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
           Book now
         </button>
         </Link>
+      )
+     }
       </div>
     
     </div>

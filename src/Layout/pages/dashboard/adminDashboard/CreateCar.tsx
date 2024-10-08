@@ -49,7 +49,7 @@ const CreateCar = () => {
             showConfirmButton: false,
             timer: 1500
           }).then(() => {
-            navigate('/dashboard/manage_booking');
+            navigate('/dashboard/manage_car');
           })
          } else {
           Swal.fire({

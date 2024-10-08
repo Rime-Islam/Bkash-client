@@ -29,7 +29,7 @@ const UpdateCar = () => {
     const onSubmit: SubmitHandler<TCar> = async (data) => {
         const imageFile = data.image[0];
         const uploadedImageURL = await uploadImage(imageFile); 
-        console.log(data)
+       
       const featuresArray = data.features.split(',').map((feature: string) => feature.trim());
       
       const isElectric = data.isElectric  === true || car?.isElectric === true;
@@ -44,7 +44,7 @@ const UpdateCar = () => {
 const Data= {
   name, features, type, color, image, isElectric, pricePerHour, description, status
 }
-console.log(Data)
+
         const res = await updateACar({ id, Data}).unwrap();
         console.log(res)
         if (res?.success){
@@ -54,7 +54,7 @@ console.log(Data)
             showConfirmButton: false,
             timer: 1500
           }).then(() => {
-            navigate('/dashboard/manage_booking');
+            navigate('/dashboard/manage_car');
           })
          } else {
           Swal.fire({

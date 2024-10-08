@@ -20,7 +20,9 @@ const handleActive = async (userId: string) => {
       title: res?.message,
       showConfirmButton: false,
       timer: 1500
-    })
+    }).then(() => {
+        window.location.reload();
+    });
    } else {
     Swal.fire({
       icon: "error",
@@ -43,7 +45,9 @@ const handleBlock = async (userId: string) => {
           title: res?.message,
           showConfirmButton: false,
           timer: 1500
-        })
+        }).then(() => {
+            window.location.reload();
+        });
        } else {
         Swal.fire({
           icon: "error",
@@ -59,14 +63,17 @@ const handleUser = async (userId: string) => {
       };
     
       const res = await updateUserRole({ userId, data }).unwrap();
-      console.log(res)
+
       if (res?.success){
         Swal.fire({
           icon: "success",
           title: res?.message,
           showConfirmButton: false,
           timer: 1500
-        })
+        }).then(() => {
+            window.location.reload();
+        });
+
        } else {
         Swal.fire({
           icon: "error",
@@ -81,14 +88,16 @@ const handleAdmin = async (userId: string) => {
       };
     
       const res = await updateUserRole({ userId, data }).unwrap();
-      console.log(res)
+  
       if (res?.success){
         Swal.fire({
           icon: "success",
           title: res?.message,
           showConfirmButton: false,
           timer: 1500
-        })
+        }).then(() => {
+            window.location.reload();
+        });
        } else {
         Swal.fire({
           icon: "error",

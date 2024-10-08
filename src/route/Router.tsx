@@ -83,7 +83,7 @@ const router = createBrowserRouter([
       element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
       children: [
         {
-          index: true,
+          path: "admin_statistics",
           element: <AdminOverview />,
         },
         {
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
           element: <CreateCar />,
         },
         {
-          path: "manage_booking/update_car/:id",
+          path: "manage_car/update_car/:id",
           element: <UpdateCar />,
         },
         {

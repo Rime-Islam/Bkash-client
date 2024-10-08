@@ -63,9 +63,10 @@ const handlePayment = async (product: any) => {
                   <td className="px-3 py-4 whitespace-nowrap">
                   {
                       product?.paymentStatus === "pending" ? (
-                          <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
+                        <p className="font-semibold text-green-600">Paid</p>
+                          
                       ) : (
-                          <p className="font-semibold text-green-600">Paid</p>
+                        <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
                       )
                   }
                     </td>

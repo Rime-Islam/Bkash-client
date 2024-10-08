@@ -34,6 +34,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               user?.role === "admin" && <>
                     <li>
                       <NavLink
+                                      to="/dashboard/admin_statistics"
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      aria-current="page"
+                                      >
+                          <IoIosCreate className="mt-1 mr-2.5"/>  Statistics
+                          </NavLink>
+                   </li>
+                    <li>
+                      <NavLink
                                       to="/dashboard/manage_car"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
