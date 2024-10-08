@@ -26,6 +26,7 @@ import Booking from "../Layout/pages/dashboard/userDashboard/Booking";
 import Profile from "../Layout/pages/dashboard/Profile";
 import UpdateProfile from "../Layout/pages/dashboard/userDashboard/UpdateProfile";
 import PaymanetConfirm from "../Layout/pages/dashboard/userDashboard/PaymanetConfirm";
+import ManageCar from "../Layout/pages/dashboard/adminDashboard/ManageCar";
 
 
 
@@ -95,11 +96,15 @@ const router = createBrowserRouter([
         },
         {
           path: "manage_booking",
-          element: <ManageBookings />,
+          element: <ManageCar/>,
         },
         {
           path: "manage_return_car",
           element: <ManageReturn />,
+        },
+        {
+          path: "manage_car",
+          element:  <ManageBookings />,
         },
         {
           path: "user_management",

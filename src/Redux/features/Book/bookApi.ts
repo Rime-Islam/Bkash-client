@@ -45,6 +45,16 @@ const bookApi = baseApi.injectEndpoints({
             },
             invalidatesTags: ["booking"],
         }),
+        IsCanceled: builder.mutation({
+            query: ({ bookingId }) => {
+                console.log(bookingId)
+                return {
+                    url: `/bookings/cancel/${bookingId}`,
+                    method: "PATCH",
+                }
+            },
+            invalidatesTags: ["booking"],
+        }),
         carPayment: builder.mutation({
             query: ({ item }) => {
                 return {
@@ -64,5 +74,6 @@ export const {
    useGetMyBookQuery,
    useDeleteBookMutation,
    useIsApprovedMutation,
-    useCarPaymentMutation
+    useCarPaymentMutation,
+    useIsCanceledMutation,
 } = bookApi;
