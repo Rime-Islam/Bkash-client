@@ -2,8 +2,10 @@ import { MdDelete } from "react-icons/md";
 import { useDeleteBookMutation, useGetMyBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { TBook } from "../../../../type/Types";
 import Swal from "sweetalert2";
+import { useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
 
 const BookingManagement = () => {
+  const [ returnCar ] = useReturnCarMutation();
   const { data } = useGetMyBookQuery(undefined);
   const booked = data?.data;
   const [deleteBook] = useDeleteBookMutation();
@@ -20,8 +22,15 @@ const BookingManagement = () => {
       confirmButtonText: "Yes, delete it!"
     }).then( async (result) => {
       if (result.isConfirmed) {
-        const res = await deleteBook({ bookedId});
-         if (res?.data?.data?.deletedCount > 0) {
+        const data = {
+          bookingId: bookedId,
+          endTime: new Date(),
+  };
+       await returnCar({ data }).unwrap();
+       
+       const res = await deleteBook({ bookedId}).unwrap();;
+    
+       if (res?.data?.deletedCount > 0) {
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -85,14 +94,19 @@ const BookingManagement = () => {
         <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.pricePerHour}</td>
         <td className="px-3 py-4 whitespace-nowrap">
         {
-          product.isBooked === "confirmed" ? (
+          product?.isBooked === "confirmed" && (
             <p className="p-2 bg-green-600 rounded text-white">Approved</p>
-          ) : (
+          ) 
+        }
+        {
+          product?.isBooked === "canceled" ? (<p className="p-2 bg-red-600 rounded text-white">Canceled</p>) :
+          (
             <button onClick={() => handleDelete(product?._id)} className="ml-2 px-2 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
            <MdDelete className="w-6 h-6"/>
           </button>
           )
         }
+       
           </td>
   </tr>
        ))

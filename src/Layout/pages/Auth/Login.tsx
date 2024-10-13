@@ -29,11 +29,9 @@ const Login = () => {
             return;
           }
 
-          const res = await loginUser({ email, password });
-
-          const user = verifyToken(res?.data?.data?.token) as TUser;
-          dispatch(setUser({ user: user, token: res?.data?.data?.token }));
-
+    const res = await loginUser({ email, password });
+console.log(res)
+          
           if (res?.data?.success) {
             Swal.fire({
                 icon: "success",
@@ -47,10 +45,14 @@ const Login = () => {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: res?.error?.data?.message || "An Error occured"
+                  text: res?.error?.data?.message || "An Error occured"
               });
           }
+        
+          const user = verifyToken(res?.data?.data?.token) as TUser;
+          dispatch(setUser({ user: user, token: res?.data?.data?.token }));
     }
+    
     return (
    <div className="bg-cover bg-center bg-fixed"
     style={{ backgroundImage: 'url("/login1.jpg")' }}

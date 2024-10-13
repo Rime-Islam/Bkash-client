@@ -17,8 +17,8 @@ export type TCar = {
     features: string[];
     description: string ;
     pricePerHour: number;
-    image: string;
-    isElectric: boolean;
+    image: any;
+    isElectric: boolean | string;
     status?: "available" | "unavailable";
     isDeleted?: boolean;
   };
@@ -56,12 +56,12 @@ export type TCar = {
   }
 
   export type TBook = {
-    _id?: string;
-    user?: string;
-    carId?: string;
+    _id?: string | undefined;
+    user?: TUser;
+    carId?: TCar;
     endTime?: string;
     totalCost?: number;
-    isBooked?: "unconfirmed" | "confirmed";
+    isBooked?: "unconfirmed" | "confirmed" | "canceled";
     isDeleted?: boolean;
     payment?: TBookingForm;
   }

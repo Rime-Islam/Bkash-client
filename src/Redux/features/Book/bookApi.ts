@@ -47,7 +47,6 @@ const bookApi = baseApi.injectEndpoints({
         }),
         IsCanceled: builder.mutation({
             query: ({ bookingId }) => {
-                console.log(bookingId)
                 return {
                     url: `/bookings/cancel/${bookingId}`,
                     method: "PATCH",

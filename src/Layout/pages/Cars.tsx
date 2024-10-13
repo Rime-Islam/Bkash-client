@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
-import { filterCars, filteredCars, setFilters } from "../../Redux/features/Car/CarSlice";
+import {  filteredCars,  } from "../../Redux/features/Car/CarSlice";
 import { useForm } from "react-hook-form";
 import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
+import { TCar } from "../../type/Types";
+
 
 
 const Cars = () => {
@@ -16,7 +18,6 @@ const Cars = () => {
     }
 
   const cars = data?.data.cars;
-
    
 
 //  const carTypes = ["SUV", "Sedan", "Hybrid"];
@@ -115,7 +116,7 @@ const Cars = () => {
             {/* CARD */}
            
                   {
-                    cars.length && cars.map((car) =>   
+                    cars?.length && cars?.map((car: TCar) =>   
                     <div key={car._id} className="rounded md:w-72  bg-white overflow-hidden shadow-lg flex flex-col">
                     <a href="#" />
                     <div className="relative">

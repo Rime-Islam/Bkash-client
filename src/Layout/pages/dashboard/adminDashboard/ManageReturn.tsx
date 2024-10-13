@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { useGetAllBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
+import { TBook } from "../../../../type/Types";
 
 
 
@@ -11,7 +12,7 @@ const ManageReturn = () => {
 
 
     const handleReturn = async ( id: string ) => {
-        console.log(id)
+      
         const data = {
             bookingId: id,
             endTime: new Date(),
@@ -69,7 +70,7 @@ Action
 </thead>
 <tbody className="bg-white divide-y divide-gray-200">
 {
-user ? ( user?.length && user?.map((product: any, index: number) => (
+user ? ( user?.length && user?.map((product: TBook, index: number) => (
 <tr key={product._id}>
      <td className="px-6 py-4 ">
        {index + 1}

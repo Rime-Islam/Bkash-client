@@ -151,6 +151,7 @@ Create A Product
     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     id="pricePerHour"
     type="number"
+    min={1}
     placeholder="Enter Car Price Per Hour"
     {...register("pricePerHour", { required: true })}
     required

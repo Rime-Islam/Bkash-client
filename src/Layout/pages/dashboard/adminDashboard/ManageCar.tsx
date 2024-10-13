@@ -4,7 +4,7 @@ import { useGetAllBookQuery, useIsApprovedMutation, useIsCanceledMutation } from
 import { FcApproval } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
 import { returnACar } from "../../../../Redux/features/Book/BookSlice";
-import { useDeleteACarMutation } from "../../../../Redux/features/Car/CarApi";
+import {  useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
 import Swal from "sweetalert2";
 
 
@@ -12,6 +12,7 @@ const ManageCar = () => {
   const dispatch = useAppDispatch();
   const { data } = useGetAllBookQuery(undefined);
   const book = data?.data;
+  const [ returnCar ] = useReturnCarMutation();
 
 
   if (book) {
@@ -42,7 +43,12 @@ const ManageCar = () => {
   }
 
   const  handleCanceled = async (bookingId: string) => {
- 
+    const data = {
+      bookingId: bookingId,
+      endTime: new Date(),
+};
+ await returnCar({ data });
+
     const res = await isCanceled({ bookingId }).unwrap();
     
     if (res?.success){
