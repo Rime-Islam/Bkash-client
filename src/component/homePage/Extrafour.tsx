@@ -13,7 +13,7 @@ const Extrafour = () => {
                 </div>
             </div>
             <div className="relative">
-                <div className="relative -mt-screen bg-white py-16 px-4">
+                <div className="relative -mt-screen bg-white dark:bg-gray-700 py-16 px-4">
 
                 </div>
             </div>

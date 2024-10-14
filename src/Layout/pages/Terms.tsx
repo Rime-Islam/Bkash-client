@@ -2,8 +2,8 @@
 
 const Terms = () => {
     return (
-        <div>
-            <div className="bg-white text-black dark:bg-black dark:text-white">
+        <div className="p-12">
+            <div className="bg-white text-black dark:bg-gray-700 dark:text-white">
   <div className="container mx-auto px-4 py-8">
     <p className="mb-4">Effective Date: 2024-7-15</p>
     <div className="w-full flex">

@@ -1,5 +1,6 @@
 import { useGetAllBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { useGetAllUserQuery } from "../../../../Redux/features/User/UserApi";
+import { TBook } from "../../../../type/Types";
 
 
 const AdminOverview = () => {
@@ -10,7 +11,7 @@ const AdminOverview = () => {
     const book = bookData?.data;
 
 
-const totalRevenue = book?.reduce((total, item) => {
+const totalRevenue = book?.reduce((total: number, item: TBook) => {
     return total + Number(item?.carId?.pricePerHour || 0);
 }, 0);
 
@@ -21,7 +22,7 @@ const totalRevenue = book?.reduce((total, item) => {
     return (
 <div className="container mx-auto p-6">
   {/* Title */}
-  <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard Overview</h1>
+  <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Dashboard Overview</h1>
   {/* Grid of Cards */}
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
     <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">

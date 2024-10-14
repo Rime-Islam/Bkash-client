@@ -2,7 +2,7 @@
 
 const Testimonial = () => {
     return (
-       <>
+       <div className="bg-white dark:bg-gray-700">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -12,7 +12,7 @@ const Testimonial = () => {
       <h4 className="text-base font-bold tracking-wide text-center uppercase text-[#FC7E01]">
         Reviews
       </h4>
-      <p className="mt-2 tracking-tight text-gray-900 text:2xl md:text-4xl">
+      <p className="mt-2 tracking-tight text-gray-900 dark:text-white text:2xl md:text-4xl">
         We have some fans.
       </p>
     </div>
@@ -189,7 +189,7 @@ const Testimonial = () => {
       </div>
     </div>
   </section>
-</>
+</div>
 
     );
 };

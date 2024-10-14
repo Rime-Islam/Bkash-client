@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 const Extra = () => {
     return (
-        <div className="py-10 md:py-20 max-w-6xl mx-auto">
+        <div className="py-10 bg-white dark:bg-gray-700  md:py-20 max-w-6xl mx-auto">
   <div className=" px-8 lg:flex lg:justify-center ">
     <div className="text-center flex-1 lg:text-left lg:mt-16">
     <h1 className="text-2xl lg:text-4xl font-bold leading-7">
-      We Are More Than <br /> <span className="text-[#FC7E01]">A Car Rental Company</span>
+      We Are More Than <br /> <span className="text-[#FC7E01] dark:text-white">A Car Rental Company</span>
       </h1>
-      <p className=" mt-6 font-light w-8/9 leading-8">
+      <p className=" mt-6 font-light w-8/9 text-black dark:text-white leading-8">
       Car repair quisque sodales dui ut varius vestibulum drana tortor turpis porttiton tellus eu euismod nisl massa nutodio in the miss volume place urna lacinia eros nunta urna mauris vehicula rutrum in the miss on volume interdum.
       </p>
-      <p className="mt-6 font-light flex gap-2"><FaCaretRight className="mt-1.5 text-[#FC7E01]"/> Sports and Luxury Cars</p>
-      <p className="mt-4 font-light flex gap-2"><FaCaretRight className="text-[#FC7E01] mt-1.5" /> Economy Cars</p>
+      <p className="mt-6 text-black dark:text-white font-light flex gap-2"><FaCaretRight className="mt-1.5 text-[#FC7E01]"/> Sports and Luxury Cars</p>
+      <p className="mt-4 text-black dark:text-white font-light flex gap-2"><FaCaretRight className="text-[#FC7E01] mt-1.5" /> Economy Cars</p>
         <Link to="/cars">
         <button
           className=" my-8

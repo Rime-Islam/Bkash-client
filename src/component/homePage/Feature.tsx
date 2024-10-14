@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Feature = () => {
 
     return (
-        <div className='mb-16 md:mb-20 lg:mb-28'>
-             <h1 className="flex mb-5 justify-center text-4xl font-regular">Latest Feature</h1>
+        <div className='pb-16 bg-white dark:bg-gray-700  md:pb-20 lg:pb-28'>
+             <h1 className="flex mb-5 justify-center text-4xl font-regular text-black dark:text-white">Latest Feature</h1>
       <section className=" overflow-hidden">
   <div className=" px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 flex flex-col justify-center">
     <div className="grid grid-col-1 md:grid-cols-2 gap-12 lg:gap-0 lg:grid-cols-4 mx-auto">

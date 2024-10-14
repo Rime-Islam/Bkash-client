@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
     return (
-        <div>
+        <div className="bg-white dark:bg-gray-700">
                         <section className="">
   <div
     id="map"
@@ -18,7 +18,7 @@ const Contact = () => {
     />
   </div>
   <div className="container px-6 md:px-12">
-    <div className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
+    <div className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] dark:bg-gray-700 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
       <div className="flex flex-wrap">
         <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
           <form>
@@ -29,7 +29,7 @@ const Contact = () => {
                 id="exampleInput90"
               />
               <label
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
+                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 dark:text-white transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
                 htmlFor="exampleInput90"
               >
                 Name
@@ -42,7 +42,7 @@ const Contact = () => {
                 id="exampleInput91"
               />
               <label
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
+                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 dark:text-white transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
                 htmlFor="exampleInput91"
               >
                 Email address
@@ -57,7 +57,7 @@ const Contact = () => {
               />
               <label
                 htmlFor="exampleFormControlTextarea1"
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
+                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 dark:text-white transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
               >
                 Message
               </label>
@@ -95,8 +95,8 @@ const Contact = () => {
                 </div>
                 <div className="ml-6 grow">
                   <p className="mb-2 font-bold ">Technical support</p>
-                  <p className="text-sm text-neutral-500">autoride123@gmail.com</p>
-                  <p className="text-sm text-neutral-500">1-600-890-4567</p>
+                  <p className="text-sm text-neutral-500 dark:text-white">autoride123@gmail.com</p>
+                  <p className="text-sm text-neutral-500 dark:text-white">1-600-890-4567</p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-6 grow">
                   <p className="mb-2 font-bold ">Address</p>
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-neutral-500 dark:text-white">
                     Moraridha, Faridpur Sodor, <br />
                     Dhaka, Bangladesh <br />
                   </p>
@@ -153,7 +153,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-6 grow">
                   <p className="mb-2 font-bold ">Land Line</p>
-                  <p className="text-neutral-500"> (0421) 431 2030</p>
+                  <p className="text-neutral-500 dark:text-white"> (0421) 431 2030</p>
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-6 grow">
                   <p className="mb-2 font-bold ">Mobile</p>
-                  <p className="text-neutral-500"> +91 123456789</p>
+                  <p className="text-neutral-500 dark:text-white"> +91 123456789</p>
                 </div>
               </div>
             </div>
@@ -207,22 +207,18 @@ const Contact = () => {
                    </div>
                 </div>
             </div>
-            <div className="relative">
-                <div className="relative -mt-screen bg-white py-16 px-4">
-
-                </div>
-            </div>
+         
         </div>
 
         {/* last section  */}
             {/* section 6  */}
-      <div className="bg-gray-100 py-12">
+      <div className="bg-gray-100 dark:bg-gray-700 py-12">
   <div className="max-w-4xl mx-auto px-6 lg:px-8">
     <div className="lg:text-center">
       <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">
         Location
       </h2>
-      <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
         Our Store
       </p>
      
@@ -250,10 +246,10 @@ const Contact = () => {
             </div>
           </div>
           <div className="ml-4">
-            <dt className="text-lg leading-6 font-medium text-gray-900">
+            <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
               Address
             </dt>
-            <dd className="mt-2 text-base text-gray-500">
+            <dd className="mt-2 text-base text-gray-500 dark:text-white">
               123 Main St, Suite 100
               <br />
               Anytown, USA 12345
@@ -281,10 +277,10 @@ const Contact = () => {
             </div>
           </div>
           <div className="ml-4">
-            <dt className="text-lg leading-6 font-medium text-gray-900">
+            <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
               Phone number
             </dt>
-            <dd className="mt-2 text-base text-gray-500">(555) 555-5555</dd>
+            <dd className="mt-2 text-base text-gray-500 dark:text-white">(555) 555-5555</dd>
           </div>
         </div>
             <div className="flex">
@@ -308,10 +304,10 @@ const Contact = () => {
                 </div>
             </div>
             <div className="ml-4">
-                <dt className="text-lg leading-6 font-medium text-gray-900">
+                <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                 Email
                 </dt>
-                <dd className="mt-2 text-base text-gray-500">info@ourstore.com</dd>
+                <dd className="mt-2 text-base text-gray-500 dark:text-white">info@ourstore.com</dd>
             </div>
             </div>
             <div className="flex">
@@ -335,10 +331,10 @@ const Contact = () => {
                 </div>
             </div>
             <div className="ml-4">
-                <dt className="text-lg leading-6 font-medium text-gray-900">
+                <dt className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                 Store Hours
                 </dt>
-                <dd className="mt-2 text-base text-gray-500">
+                <dd className="mt-2 text-base text-gray-500 dark:text-white">
                 Monday - Friday: 9am to 8pm
                 <br />
                 Saturday: 10am to 6pm

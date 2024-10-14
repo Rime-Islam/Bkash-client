@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetMyBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { useAppDispatch } from "../../../../Redux/app/hook";
 import { carPayment } from "../../../../Redux/features/Book/BookSlice";
+import { TBook } from "../../../../type/Types";
 
 
 const Payment = () => {
@@ -12,43 +13,43 @@ const Payment = () => {
     const dispatch = useAppDispatch();
 
 
-const handlePayment = async (product: any) => {
+const handlePayment = async (product: TBook) => {
     dispatch(carPayment(product));
     navigate("/dashboard/payment_confirmation");
 }
 
     return (
         <div>
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className="min-w-full  divide-y divide-gray-200">
   <thead>
     <tr>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Index
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Car Image
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Car Name
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Start Time
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       End Time
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Total Cost
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
        Payment
       </th>
     </tr>
   </thead>
-  <tbody className="bg-white divide-y divide-gray-200">
+  <tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
       {
     booked ? (
-        booked?.length && booked?.map((product: any, index: number) => (
+        booked?.length && booked?.map((product: TBook, index: number) => (
             <tr key={product._id}>
                     <td className="px-6 py-4 ">
                       {index + 1}

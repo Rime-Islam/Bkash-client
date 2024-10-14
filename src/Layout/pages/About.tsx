@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <div className="">
+        <div className="bg-white dark:bg-gray-700">
             {/* section 1  */}
             <div>
                 <img className="w-full h-[70vh]" src="/about.jpg" alt="about us image" />
@@ -11,30 +11,30 @@ const About = () => {
             </div>
                     {/* section 2 */}
         <section className="">
-            <div className="py-12 bg-white">
+            <div className="py-12 bg-white dark:bg-gray-700 ">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
                 
-                    <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                    <p className="font-heading mt-2 dark:text-white text-3xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4xl">
                     We know tech, we know finance. We are fintech experts.
                     </p>
-                    <p className="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                    <p className="mt-4 max-w-2xl text-gray-500 dark:text-white text-lg  lg:mx-auto">
                     We know how to handle taxation for all the countried we operate in. We
                     care for our customers and help them manage rentals.
                     </p>
                 </div>
                 <div className="mt-10">
                     <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                    <div className="relative">
+                    <div className="relative ">
                         <dt>
                         <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
                             <img src="https://www.svgrepo.com/show/503163/api-settings.svg" />
                         </div>
-                        <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">
+                        <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-500 dark:text-white">
                             Our Legacy
                         </p>
                         </dt>
-                        <dd className="mt-2 ml-16 text-base text-gray-500">
+                        <dd className="mt-2 ml-16 text-base text-gray-500  dark:text-white">
                         Since our founding in 1998, we have been at the forefront of the car rental industry. </dd>
                     </div>
                     <div className="relative">
@@ -46,7 +46,7 @@ const About = () => {
                         Global Reach
                         </p>
                         </dt>
-                        <dd className="mt-2 ml-16 text-base text-gray-500">
+                        <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-white">
                         From our humble beginnings, we've expanded our operations to over 50 countries worldwide. 
                         </dd>
                     </div>
@@ -59,7 +59,7 @@ const About = () => {
                         Innovation and Technology
                         </p>
                         </dt>
-                        <dd className="mt-2 ml-16 text-base text-gray-500">
+                        <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-white">
                         We embrace technology to enhance our services and provide our customers with the best possible experience. 
                         </dd>
                     </div>
@@ -72,7 +72,7 @@ const About = () => {
                         Sustainability Commitment
                         </p>
                         </dt>
-                        <dd className="mt-2 ml-16 text-base text-gray-500">
+                        <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-white">
                         We understand the impact our industry has on the environment, and we are committed to reducing our carbon footprint. 
                         </dd>
                     </div>
@@ -108,67 +108,65 @@ const About = () => {
 
             {/* section 3 */}
         <section className="text-center py-10 md:py-20 px-4">
-        <h2 className="text-2xl md:text-4xl font-bold">Mission And Values</h2>
-        <p className="mt-4 text-gray-700 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-4xl font-bold text-black dark:text-white">Mission And Values</h2>
+        <p className="mt-4 text-gray-500 dark:text-white max-w-2xl mx-auto">
         Our mission is to provide exceptional healthcare services with a focus on
         availability, reliability, and support.
         </p>
         <div className="flex justify-center space-x-8 mt-8 animate-fadeIn">
         <div className="transition transform hover:scale-110">
             <h3 className="text-xl font-bold">85+</h3>
-            <p className="text-gray-700">Specialists</p>
+            <p className="text-gray-500 dark:text-white">Specialists</p>
         </div>
         <div className="transition transform hover:scale-110">
             <h3 className="text-xl font-bold">25+</h3>
-            <p className="text-gray-700">Years of Experience</p>
+            <p className="text-gray-500 dark:text-white">Years of Experience</p>
         </div>
         </div>
         </section>
 
     {/* section 4 */}
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 dark:bg-gray-700">
     <div className="py-10 max-w-screen-xl mx-auto">
-    <div className="text-center mb-16">
+    <div className="text-center pb-16">
     
     <h3 className="text-2xl md:text-4xl font-bold ">
         Our Team
     </h3>
     </div>
     <div className="grid grid-cols-3 col-gap-10">
-    <div className="text-center bg-white">
+    <div className="text-center bg-white dark:bg-gray-700">
         <img
         className="w-100"
         src="https://images.pexels.com/photos/1587014/pexels-photo-1587014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         />
         <div className="p-4">
         <div className="text-md">
-            <a
-            href="#"
-            className="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out"
+            <p
+            className="hover:text-indigo-500 text-gray-900 dark:text-white font-semibold transition duration-500 ease-in-out"
             >
             Mehdi Mohammadi
-            </a>
-            <p className="text-gray-500 uppercase text-sm">Technician</p>
+            </p>
+            <p className="text-gray-500 dark:text-white uppercase text-sm">Technician</p>
         </div>
         <div className="my-4 flex justify-center items-center">
     {/* social media  */}
         </div>
         </div>
     </div>
-    <div className="text-center bg-white">
+    <div className="text-center bg-white dark:bg-gray-700">
         <img
         className="w-100"
         src="https://images.pexels.com/photos/2897883/pexels-photo-2897883.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         />
         <div className="p-4">
         <div className="text-md">
-            <a
-            href="#"
-            className="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out"
+            <p
+            className="hover:text-indigo-500 text-gray-900 dark:text-white font-semibold transition duration-500 ease-in-out"
             >
             Yahya R. Makarim
-            </a>
-            <p className="text-gray-500 uppercase text-sm">
+            </p>
+            <p className="text-gray-500 dark:text-white uppercase text-sm">
             president &amp; CEO
             </p>
         </div>
@@ -177,20 +175,19 @@ const About = () => {
         </div>
         </div>
     </div>
-    <div className="text-center bg-white">
+    <div className="text-center bg-white dark:bg-gray-700">
         <img
         className="w-100"
         src="https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         />
         <div className="p-4">
         <div className="text-md">
-            <a
-            href="#"
-            className="hover:text-indigo-500 text-gray-900 font-semibold transition duration-500 ease-in-out"
+            <p
+            className="hover:text-indigo-500 text-gray-900 dark:text-white font-semibold transition duration-500 ease-in-out"
             >
             Ahmad Sultani
-            </a>
-            <p className="text-gray-500 uppercase text-sm">Manager</p>
+            </p>
+            <p className="text-gray-500 dark:text-white uppercase text-sm">Manager</p>
         </div>
         <div className="my-4 flex justify-center items-center">
         
@@ -203,7 +200,7 @@ const About = () => {
     </div>
 
         {/* section 5 */}
-        <div className="text-center p-8">
+        <div className="text-center p-8 text-gray-900 dark:text-white">
   <h2 className="font-bold text-2xl  md:text-4xl ">
     Variety Of Cars
   </h2>

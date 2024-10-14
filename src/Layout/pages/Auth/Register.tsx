@@ -63,8 +63,8 @@ const Register = () => {
 
     return (
         <div>
-  <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-    <div className="max-w-screen-xl lg:mt-5  bg-white shadow rounded-lg flex justify-center flex-1">
+  <div className="min-h-screen bg-gray-100 dark:bg-gray-700 text-gray-900 flex justify-center">
+    <div className="max-w-screen-xl lg:mt-5  bg-white dark:bg-gray-700 shadow rounded-lg flex justify-center flex-1">
       <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
         <div>
         <div className="flex justify-center">
@@ -75,18 +75,18 @@ const Register = () => {
             /> <span className="text-xl font-semibold text-amber-600">AutoRide</span>
             </div>
         </div>
-        <div className="mt-5 flex flex-col items-center">
-          <h1 className="text-2xl lg:text-3xl font-bold">Sign up</h1>
+        <div className="mt-5 flex bg-white dark:bg-gray-700 flex-col items-center">
+          <h1 className="text-2xl text-black dark:text-white lg:text-3xl font-bold">Sign up</h1>
           <div className="w-full flex-1 mt-5">
             
           <form onSubmit={handleSubmit(onSubmit)}  className=" px-5 " action="" method="POST">
     
     <div className="mb-4 ">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="name">
        Full Name
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadowappearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="name"
         type="text"
         placeholder="Enter Your Full Name"
@@ -96,11 +96,11 @@ const Register = () => {
     </div>
 
     <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="email">
         Email
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="email"
         type="email"
         placeholder="Enter Email Address"
@@ -110,11 +110,11 @@ const Register = () => {
     </div>
 
     <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="phone">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="phone">
         Password
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="createPassword"
         type="password"
         placeholder="Enter A Password"
@@ -124,11 +124,11 @@ const Register = () => {
     </div>
 
     <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="date">
         Confirm Password
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="confirmpPassword"
         type="password"
         placeholder="Enter Confirm Password"
@@ -138,11 +138,11 @@ const Register = () => {
     </div>
 
     <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="time">
         Phone Number
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="phone"
         type="number"
         placeholder="Enter Your Phone Number"
@@ -151,11 +151,11 @@ const Register = () => {
       />
     </div>
     <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2" htmlFor="time">
+      <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="time">
         Address
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         id="address"
         type="text"
         placeholder="Enter Your Phone Number"
@@ -173,7 +173,7 @@ const Register = () => {
     onChange={(e) => setIsChecked(e.target.checked)}
     />
     <span><Link to="/terms">
-    <p className="text-sm text-center hover:underline hover:text-blue-600">Terms of Service and its Privacy Policy</p>
+    <p className="text-sm text-black dark:text-white text-center hover:underline hover:text-blue-600">Terms of Service and its Privacy Policy</p>
     </Link></span>
   </label>
 </div>
@@ -190,7 +190,7 @@ const Register = () => {
       </button>
     </div>
     <Link to="/login">
-    <p className="text-sm text-center hover:underline hover:text-blue-600">Already have an account? Login!</p>
+    <p className="text-sm text-black dark:text-white text-center hover:underline hover:text-blue-600">Already have an account? Login!</p>
     </Link>
   </form>
           </div>

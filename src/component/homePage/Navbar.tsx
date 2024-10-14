@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import {  Link, NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
 import { logout, useCurrentUser } from "../../Redux/features/Auth/authSlice";
+import { IoIosMoon } from "react-icons/io";
+import { MdSunny } from "react-icons/md";
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,16 +22,46 @@ const Navbar = () => {
           console.log('log out')
           dispatch(logout());
         }
+        
+        const [theme, setTheme] = useState<'light' | 'dark'>(
+          (localStorage.getItem('theme') as 'light' | 'dark') || 'light'
+        );
+
+        const toggleTheme = () => {
+          const newTheme = theme === 'light' ? 'dark' : 'light';
+          setTheme(newTheme);
+          localStorage.setItem('theme', newTheme);
+        };
+      
+        useEffect(() => {
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }, [theme]);
 
     return (
         <div className="fixed container mx-auto z-10 bg-opacity-30">
-          <div className=" flex bg-[#A3CADB] items-center justify-between p-3 ">
+          <div className=" flex dark:bg-gray-800 bg-[#A3CADB] items-center justify-between p-3 ">
       <div className="flex">
       <img
           src="/logo.png"
           className="h-8 w-124"
           alt=""
         /> <span className="text-xl font-semibold text-white">AutoRide</span>
+       <button onClick={toggleTheme} className="mt-1 ml-5">
+      {theme === 'light' ? (
+          <>
+            <IoIosMoon className="w-6 h-6  dark:text-white" />
+           
+          </>
+        ) : (
+          <>
+            <MdSunny className="w-6 h-6  dark:text-white" />
+          </>
+        )}
+      </button>
       </div>
         <div className="flex lg:hidden items-center md:justify-center md:w-full lg:w-auto ">
           <button type="button" onClick={toggleMenu} className="">
@@ -100,6 +133,7 @@ Dashboard
       </li>
       </ul>
         </div>
+      
       <div className="flex gap-2 font-semibold">
      {
       !user &&  <Link to="/login">

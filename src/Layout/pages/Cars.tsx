@@ -2,16 +2,17 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
 import {  filteredCars,  } from "../../Redux/features/Car/CarSlice";
 import { useForm } from "react-hook-form";
-import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
+
 import { TCar } from "../../type/Types";
+import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
 
 
 
 const Cars = () => {
     const { data, isLoading } = useGetAllCarQuery(undefined);
     const filterCarFromState = useAppSelector(filteredCars);
-    const { register, handleSubmit } = useForm();
-    const dispatch = useAppDispatch();
+    // const { register, handleSubmit } = useForm();
+    // const dispatch = useAppDispatch();
 
     if(isLoading) {
         return <div className="text-center font-semibold text-xl my-5">Loading...</div>
@@ -32,7 +33,7 @@ const Cars = () => {
 //  };
 
   return (
-    <div className="pb-8 md:pb-12 lg:pb-16 px-4 md:px-8">
+    <div className="py-8 md:py-12 lg:py-16 px-4 md:px-8">
     {/* heading  */}
     <h1 className="text-center py-8 md:py-12 lg:py-16 text-2xl md:text-4xl font-semibold ">Luxury <span className="text-amber-600">Car Fleet</span></h1>
 

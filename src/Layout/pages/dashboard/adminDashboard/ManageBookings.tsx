@@ -66,36 +66,36 @@ const handleDelete = async (carId: string | undefined) => {
        <table className="min-w-full divide-y divide-gray-200">
 <thead>
 <tr>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
    Index
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
    Car Image
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
  Car Name
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
  Car Price
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
  Car Color
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
  Car Status
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
  Car Type
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
    Edit
  </th>
- <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+ <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
    Delete
  </th>
 </tr>
 </thead>
-<tbody className="bg-white divide-y divide-gray-200">
+<tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
  {
 car?.length && car?.map((product: TCar, index: number) => (
 <tr key={product._id}>

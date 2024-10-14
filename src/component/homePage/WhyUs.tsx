@@ -1,10 +1,10 @@
 
 const WhyUs = () => {
     return (
-        <div>
+        <div className="bg-white dark:bg-gray-700">
             {/* part 1  */}
-            <div className="text-gray-900 body-font">
-            <h1 className="flex justify-center mt-10 text-4xl font-regular">Why Choose Us?</h1>
+            <div className="text-gray-900 dark:text-white body-font">
+            <h1 className="flex justify-center pt-10 text-4xl font-regular">Why Choose Us?</h1>
             <div className="container px-5 py-12 mx-auto">
                 <div className="flex gap-5 md:gap-8 lg:gap-12 flex-wrap text-center justify-center">
                 <div className="p-4 ">
@@ -15,7 +15,7 @@ const WhyUs = () => {
                         className="w-28 mb-3"
                         />
                     </div>
-                    <h2 className="title-font font-regular text-xl text-gray-900">
+                    <h2 className="title-font font-regular text-xl text-gray-900 dark:text-white">
                         Latest Car Model
                     </h2>
                     </div>
@@ -28,7 +28,7 @@ const WhyUs = () => {
                         className="w-28 mb-3"
                         />
                     </div>
-                    <h2 className="title-font font-regular text-xl text-gray-900">
+                    <h2 className="title-font font-regular text-xl text-gray-900 dark:text-white">
                         Reasonable Rates
                     </h2>
                     </div>
@@ -41,7 +41,7 @@ const WhyUs = () => {
                         className="w-28 mb-3"
                         />
                     </div>
-                    <h2 className="title-font font-regular text-xl text-gray-900">
+                    <h2 className="title-font font-regular text-xl text-gray-900 dark:text-white">
                         Time Efficiency
                     </h2>
                     </div>

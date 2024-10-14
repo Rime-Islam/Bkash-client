@@ -1,5 +1,5 @@
 export type TUser = {
-  _id?: string;
+  _id?: any;
   name: string;
   email: string;
   role?: string;
@@ -7,10 +7,11 @@ export type TUser = {
   confirmPassword: string;
   phone: string;
   address: string;
+  status?: string
 };
 
 export type TCar = {
-    _id?: string;
+    _id?: any;
     name: string;
     type: ["SUV" | "Sedan" | "hybrid"];
     color: string;
@@ -56,7 +57,7 @@ export type TCar = {
   }
 
   export type TBook = {
-    _id?: string | undefined;
+    _id?: string | undefined | any;
     user?: TUser;
     carId?: TCar;
     endTime?: string;
@@ -64,6 +65,7 @@ export type TCar = {
     isBooked?: "unconfirmed" | "confirmed" | "canceled";
     isDeleted?: boolean;
     payment?: TBookingForm;
+    paymentStatus?: string;
   }
 
   export interface BookingState {

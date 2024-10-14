@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ExtraThree = () => {
     return (
-        <div>
+        <div className="bg-white pb-10 dark:bg-gray-700">
         <div className="h-[80vh] bg-fixed bg-center bg-cover" style={{ backgroundImage: 'url("/parallax4.webp")' }}>
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
                    <div>
@@ -20,11 +20,7 @@ const ExtraThree = () => {
                    </div>
                 </div>
             </div>
-            <div className="relative">
-                <div className="relative -mt-screen bg-white py-5 px-4">
 
-                </div>
-            </div>
         </div>
     );
 };

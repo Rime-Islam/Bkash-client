@@ -20,7 +20,7 @@ const Dashboard = () => {
             setIsOpen(!isOpen);
         }
     return (
-        <div className="flex h-screen bg-gray-100">
+        <div className="flex h-screen bg-gray-100 dark:bg-gray-700">
         {/* sidebar */}
         <Sidebar isOpen={isOpen}/>
         {/* Main content */}

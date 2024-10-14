@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import { useGetAllUserQuery, useUpdateUserMutation } from "../../../../Redux/features/User/UserApi";
+import { TUser } from "../../../../type/Types";
 
 
 const UserManagement = () => {
@@ -122,32 +123,32 @@ const handleAdmin = async (userId: string) => {
             <table className="min-w-full divide-y divide-gray-200">
   <thead>
     <tr>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Index
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Name
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
      Email
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Phone Number
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Role
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Status
       </th>
-      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
       Actions
       </th>
     </tr>
   </thead>
-  <tbody className="bg-white divide-y divide-gray-200">
+  <tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
       {
-    user ? ( user?.length && user?.map((product: any, index: number) => (
+    user ? ( user?.length && user?.map((product: TUser, index: number) => (
       <tr key={product._id}>
               <td className="px-6 py-4 ">
                 {index + 1}
@@ -157,7 +158,7 @@ const handleAdmin = async (userId: string) => {
             <td className="px-6 py-4 whitespace-nowrap">{product?.phone} </td>
             <td className="px-6 py-4 whitespace-nowrap">
                 {
-                product?.role === "admin" ? ( <span className="font-semibold text-gray-800">Admin</span>) : ( <span className="font-semibold text-amber-600">User</span> )
+                product?.role === "admin" ? ( <span className="font-semibold text-gray-800 dark:text-green-600">Admin</span>) : ( <span className="font-semibold text-amber-600">User</span> )
                 }
                 </td>
             <td className="px-6 py-4 whitespace-nowrap">

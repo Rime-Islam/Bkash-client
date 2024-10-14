@@ -9,7 +9,7 @@ const MainLayOut = () => {
     location.pathname.includes('register');
 
     return (
-        <div className="container mx-auto">
+        <div className="lg:container mx-auto bg-white dark:bg-gray-700">
             <div className=" flex flex-col min-h-[100vh]">
          <div className="flex-grow">
          { noHeaderFooter || <Navbar></Navbar>}

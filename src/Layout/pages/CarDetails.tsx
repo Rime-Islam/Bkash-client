@@ -74,24 +74,24 @@ console.log(car)
           {car?.pricePerHour}/-
         </div>
         </div>
-        <div className="text-gray-900 text-lg font-semibold">Color: <span className="text-medium font-normal">{car?.color}</span></div>
-        <div className="text-gray-900 text-lg font-semibold">Type: <span className="text-medium font-normal">{car?.type}</span></div>
-        <div className="text-gray-900 text-lg font-semibold py-4"> <span className="text-medium font-normal">{car?.isElectric === "true" ? <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#D9A1A7]">Electric</span> : <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#8a436a]">Not Electric</span>}</span></div>
-        <div className="text-gray-900 text-lg font-semibold">Status: <span className="text-medium font-normal">{car?.status}</span></div>
-        <div className="text-gray-900 text-lg font-semibold mb-3">Feature:
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold">Color: <span className="text-medium font-normal">{car?.color}</span></div>
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold">Type: <span className="text-medium font-normal">{car?.type}</span></div>
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold py-4"> <span className="text-medium font-normal">{car?.isElectric === "true" ? <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#D9A1A7]">Electric</span> : <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#8a436a]">Not Electric</span>}</span></div>
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold">Status: <span className="text-medium font-normal">{car?.status}</span></div>
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold mb-3">Feature:
           <span className="text-medium font-normal">{car?.features.map((feature, index) => (
-            <li key={index} className="text-gray-600 text-sm">{feature}</li>
+            <li key={index} className="text-gray-600 dark:text-gray-400 text-sm">{feature}</li>
         ))}</span></div>
         <div>
-          <h2 className="text-xl text-gray-900 font-semibold">Choose Additional Features</h2>
+          <h2 className="text-xl text-gray-900 dark:text-gray-200 font-semibold">Choose Additional Features</h2>
           <div className="mb-4">{additionalFeatures.map((feature) => (
             <label key={feature} className="flex items-center">
               <input type="checkbox" value={feature} onChange={() => handleFeatures(feature)} />
-              <span className="ml-2">{feature}</span>
+              <span className="ml-2 dark:text-gray-400">{feature}</span>
             </label>
           ))}</div>
         </div>
-        <div className="text-gray-900 text-lg font-semibold">Description: <span className="text-gray-500 text-sm">{car?.description}</span></div>
+        <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold">Description: <span className="text-gray-500 dark:text-gray-400 text-sm">{car?.description}</span></div>
       <div className="flex mb-4 text-sm font-medium">
      {
       car.status === "unavailable" ? (
