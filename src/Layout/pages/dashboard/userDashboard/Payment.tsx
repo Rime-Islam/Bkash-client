@@ -8,7 +8,7 @@ import { TBook } from "../../../../type/Types";
 const Payment = () => {
     const  { data } = useGetMyBookQuery(undefined);
     const booked = data?.data;
-    console.log(booked)
+   
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
