@@ -37,7 +37,14 @@ const handleFeatures = ( feature: string ) => {
   dispatch(bookedCar(addedCar));
 };
 
-console.log(car)
+const handleBook = () => {
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const addedCar: any = { ...car };
+  dispatch(bookedCar(addedCar));
+}
+
+
 
     return (
       <div className="flex justify-center mt-12">
@@ -98,7 +105,7 @@ console.log(car)
         <div className="py-2 px-4 mt-5 bg-[#70AABD]  text-white w-full text-center text-base font-semibold shadow-md rounded-lg ">Not Available</div>
       ) : (
         <Link to='/dashboard/booking'>
-        <button className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+        <button onClick={handleBook} className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
           Book now
         </button>
         </Link>

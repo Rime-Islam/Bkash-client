@@ -9,7 +9,7 @@ const BookingManagement = () => {
   const { data } = useGetMyBookQuery(undefined);
   const booked = data?.data;
   const [deleteBook] = useDeleteBookMutation();
-
+console.log(booked)
 
   const handleDelete = async (bookedId: string | undefined) => {
     Swal.fire({
@@ -93,17 +93,18 @@ const BookingManagement = () => {
             <td className="px-6 py-4 whitespace-nowrap">{product?.payment?.exprirationDate}</td>
             <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.pricePerHour}</td>
             <td className="px-3 py-4 whitespace-nowrap">
+           
             {
-              product?.isBooked === "confirmed" && (
-                <p className="p-2 bg-green-600 rounded text-white">Approved</p>
-              ) 
-            }
-            {
-              product?.isBooked === "canceled" ? (<p className="p-2 bg-red-600 rounded text-white">Canceled</p>) :
+              product?.isBooked === "canceled" ? (<p className="p-2 text-red-600 rounded font-semibold">Canceled</p>) :
               (
-                <button onClick={() => handleDelete(product?._id)} className="ml-2 px-2 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
-               <MdDelete className="w-6 h-6"/>
-              </button>
+                product?.isBooked === "confirmed" ? (
+                  <p className="p-2 text-green-600 rounded  font-semibold">Approved</p>
+                ) : (
+                  <button onClick={() => handleDelete(product?._id)} className="ml-2 px-2 py-2  text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
+                  <MdDelete className="w-6 h-6"/>
+                 </button>
+                )
+              
               )
             }
            

@@ -8,6 +8,7 @@ import { TBook } from "../../../../type/Types";
 const Payment = () => {
     const  { data } = useGetMyBookQuery(undefined);
     const booked = data?.data;
+    console.log(booked)
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -62,13 +63,29 @@ const handlePayment = async (product: TBook) => {
                   <td className="px-6 py-4 whitespace-nowrap">{product?.payment?.exprirationDate}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.pricePerHour}</td>
                   <td className="px-3 py-4 whitespace-nowrap">
+               
                   {
-                      product?.paymentStatus === "pending" ? (
-                        <p className="font-semibold text-green-600">Paid</p>
-                          
+                    product?.totalCost !== 0 ? ( 
+                      
+                        product?.paymentStatus === "pending" ? (
+                          <p className="font-semibold text-green-600">Paid</p>
+                            
+                        ) : (
+                          <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
+                        )
+                    
+                    ) : (
+                     product?.isBooked === 'canceled' ? (
+                      <p className="p-2 text-red-600 rounded font-semibold">Canceled</p>
+                     ) : (
+                      product?.isBooked === 'unconfirmed' ? (
+                        <p className="p-2 text-amber-600 rounded font-semibold">Not Confirmed</p>
                       ) : (
-                        <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
+                        <p className="p-2 text-green-600 rounded font-semibold">Confirmed</p>
                       )
+                     )
+                    )
+                    
                   }
                     </td>
             </tr>

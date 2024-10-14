@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../../app/store";
 
+// https://car-rental-reservation-psi.vercel.app
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api",
   credentials: 'include',
