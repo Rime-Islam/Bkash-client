@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../../Redux/app/hook";
 import { useCarPaymentMutation } from "../../../../Redux/features/Book/bookApi";
 import { useCarPayment } from "../../../../Redux/features/Book/BookSlice";
-
+import Swal from "sweetalert2";
 
 
 const PaymanetConfirm = () => {
@@ -11,7 +11,17 @@ const PaymanetConfirm = () => {
 
     const payDue = async () => {
         const res = await carPayment({ item }).unwrap();
-        console.log(res)
+        
+        if (res?.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Your Payment is Loading...",
+            showConfirmButton: false,
+            timer: 1500
+          })
+
+          window.location.href = res?.data?.payment_url;
+        }
     };
 
 
