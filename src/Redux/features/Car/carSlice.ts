@@ -35,12 +35,17 @@ const initialState: CarState = {
         },
         filterCars: (state) => {
             state.filteredCars = state.car.filter((item) => {
-                const matchType = state.filters.carType ? item.name.toLowerCase().includes(state.filters.carType.toLowerCase()) : true;
-                const matchColor = state.filters.color ? item.name.toLowerCase().includes(state.filters.color.toLowerCase()) : true;
+                const hasFilters = state.filters.carType || state.filters.color || state.filters.priceRange.length;
+            
+                if (!hasFilters) {
+                    return true;
+                   }            
+                const matchType = state.filters.carType ? item.type.toLowerCase().includes(state.filters.carType.toLowerCase()) : true;
+                const matchColor = state.filters.color ? item.color.toLowerCase().includes(state.filters.color.toLowerCase()) : true;
 
-                const matchPrice = item.pricePerHour >= state.filters.priceRange[0] && item.pricePerHour <= state.filters.priceRange[1];
-
-            return matchType && matchPrice && matchColor;
+                // const matchPrice = item.pricePerHour >= state.filters.priceRange[0] && item.pricePerHour <= state.filters.priceRange[1];
+                console.log(matchType,matchColor )
+            return matchType && matchColor;
 
             });
         },

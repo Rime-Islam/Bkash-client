@@ -1,36 +1,45 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
-import {  filteredCars,  } from "../../Redux/features/Car/CarSlice";
+import {  filterCars, filteredCars, setAllCar, setFilters,  } from "../../Redux/features/Car/CarSlice";
 import { useForm } from "react-hook-form";
 
 import { TCar } from "../../type/Types";
 import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
+import { useEffect } from "react";
 
 
 
 const Cars = () => {
     const { data, isLoading } = useGetAllCarQuery(undefined);
     const filterCarFromState = useAppSelector(filteredCars);
-    // const { register, handleSubmit } = useForm();
-    // const dispatch = useAppDispatch();
+    const { register, handleSubmit } = useForm();
+    const dispatch = useAppDispatch();
 
+    useEffect(() => {
+      if (data) {
+          dispatch(setAllCar(data.data.cars));
+      }
+  }, [data, dispatch]);
+  
     if(isLoading) {
         return <div className="text-center font-semibold text-xl my-5">Loading...</div>
     }
 
   const cars = data?.data.cars;
-   
+   console.log(filterCarFromState)
 
-//  const carTypes = ["SUV", "Sedan", "Hybrid"];
-//  const colors = ["Red", "Black", "White", "Blue", "Wine", "Yellow"];
-//  const prices = [500, 1000, 1500, 2000, 2500, 3000 ]
-
+ const carTypes = ["SUV", "Sedan", "hybrid"];
+ const colors = ["Red", "Black", "White", "Blue", "Wine", "Yellow", "Gray"];
 
 
-//  const onSubmit = (filterCriteria: any) => {
-//   dispatch(setFilters(filterCriteria));
-//   dispatch(filterCars());
-//  };
+
+ const onSubmit = (filterCriteria: any) => {
+  console.log(filterCriteria)
+  dispatch(setFilters(filterCriteria));
+  dispatch(filterCars());
+ };
+
+ const displayedCar = filterCarFromState.length > 0 ? filterCarFromState : cars;
 
   return (
     <div className="py-8 md:py-12 lg:py-16 px-4 md:px-8">
@@ -39,7 +48,7 @@ const Cars = () => {
 
 <div className="md:flex gap-2 lg:gap-4 lg:px-0">
    {/* filter section  */}
-{/* <div>
+<div>
 <form onSubmit={handleSubmit(onSubmit)}>
 
 <div className="mb-4">
@@ -84,31 +93,11 @@ const Cars = () => {
             </select>
           </div>
 
-<div className="mb-4">
-            <label
-              htmlFor="pricePerHour"
-              className="block text-gray-700 font-semibold mb-2"
-            >
-              Car Price
-            </label>
-            <select
-              id="pricePerHour"
-              {...register("pricePerHour")}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-            >
-              
-              {prices.map((price) => (
-                <option key={price} value={price}>
-                  {price}
-                </option>
-              ))}
-            </select>
-          </div>
         
         <button  className="bg-[#FC7E01] w-full hover:bg-amber-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit">Filter</button>
         </form>
-</div> */}
+</div>
 
         {/* card section  */}
         <div className="pt-4 md:pt-8  mx-auto ">
@@ -117,7 +106,7 @@ const Cars = () => {
             {/* CARD */}
            
                   {
-                    cars?.length && cars?.map((car: TCar) =>   
+                    displayedCar?.length && displayedCar?.map((car: TCar) =>   
                     <div key={car._id} className="rounded md:w-72  bg-white overflow-hidden shadow-lg flex flex-col">
                     <a href="#" />
                     <div className="relative">
