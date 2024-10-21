@@ -40,7 +40,9 @@ const initialState: CarState = {
                 if (!hasFilters) {
                     return true;
                    }            
-                const matchType = state.filters.carType ? item.type.toLowerCase().includes(state.filters.carType.toLowerCase()) : true;
+                   const matchType = state.filters.carType 
+                   ? (item.type as unknown as string).toLowerCase().includes((state.filters.carType as string).toLowerCase()) 
+                   : true;
                 const matchColor = state.filters.color ? item.color.toLowerCase().includes(state.filters.color.toLowerCase()) : true;
 
            

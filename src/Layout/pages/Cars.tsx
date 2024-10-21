@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
-import {  filterCars, filteredCars, setAllCar, setFilters,  } from "../../Redux/features/Car/CarSlice";
+import {  filterCars, filteredCars, setAllCar, setFilters,  } from "../../Redux/features/Car/carSlice";
 import { useForm } from "react-hook-form";
 import { TCar } from "../../type/Types";
 import { useGetAllCarQuery } from "../../Redux/features/Car/carApi";

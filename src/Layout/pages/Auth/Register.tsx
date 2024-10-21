@@ -44,7 +44,7 @@ const Register = () => {
        const phone = data.phone;
        const address = data.address;
 
-       const res = await registerUser({ name, email, role, password, phone, address });
+       const res: any = await registerUser({ name, email, role, password, phone, address });
       
        if (res?.data?.success){
         Swal.fire({

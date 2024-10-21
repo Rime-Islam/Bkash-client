@@ -24,7 +24,7 @@ const SetPassword = () => {
     }
     const password = confirmPassword;
 
-    const res = await resetPassword({ id, token, password });
+    const res: any = await resetPassword({ id, token, password });
     if (res?.data?.success){
       Swal.fire({
         icon: "success",

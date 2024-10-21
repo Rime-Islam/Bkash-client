@@ -1,6 +1,6 @@
 import storage  from 'redux-persist/lib/storage';
 import authReducer from '../features/Auth/authSlice'
-import carReducer from '../features/Car/CarSlice'
+import carReducer from '../features/Car/carSlice'
 import bookReducer from '../features/Book/BookSlice'
 import {
   persistReducer,

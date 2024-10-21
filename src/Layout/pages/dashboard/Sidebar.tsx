@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
     const user = useAppSelector(useCurrentUser);
         
     const handleLogOut = async() => {
-        console.log('log out')
+       
         dispatch(logout());
       }
     return (

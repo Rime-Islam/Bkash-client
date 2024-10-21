@@ -36,8 +36,8 @@ const Login = () => {
             return;
           }
 
-    const res = await loginUser({ email, password });
-console.log(res)
+    const res: any = await loginUser({ email, password });
+
           
           if (res?.data?.success) {
             Swal.fire({

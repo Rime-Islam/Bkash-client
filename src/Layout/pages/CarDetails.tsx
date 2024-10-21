@@ -93,7 +93,7 @@ const handleBook = () => {
         <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold py-4"> <span className="text-medium font-normal">{car?.isElectric === "true" ? <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#D9A1A7]">Electric</span> : <span className="font-semibold text-white rounded px-3 py-1.5 bg-[#8a436a]">Not Electric</span>}</span></div>
         <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold">Status: <span className="text-medium font-normal">{car?.status}</span></div>
         <div className="text-gray-900 dark:text-gray-200 text-lg font-semibold mb-3">Feature:
-          <span className="text-medium font-normal">{car?.features.map((feature, index) => (
+          <span className="text-medium font-normal">{car?.features.map((feature: string, index: number) => (
             <li key={index} className="text-gray-600 dark:text-gray-400 text-sm">{feature}</li>
         ))}</span></div>
         <div>

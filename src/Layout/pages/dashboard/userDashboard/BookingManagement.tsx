@@ -2,7 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { useDeleteBookMutation, useGetMyBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { TBook } from "../../../../type/Types";
 import Swal from "sweetalert2";
-import { useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
+import { useReturnCarMutation } from "../../../../Redux/features/Car/carApi";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,7 +16,7 @@ const BookingManagement = () => {
   const { data } = useGetMyBookQuery(undefined);
   const booked = data?.data;
   const [deleteBook] = useDeleteBookMutation();
-console.log(booked)
+
 
   const handleDelete = async (bookedId: string | undefined) => {
     Swal.fire({

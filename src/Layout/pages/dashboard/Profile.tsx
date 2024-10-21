@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import { useAppSelector } from "../../../Redux/app/hook";
 import { useCurrentUser } from "../../../Redux/features/Auth/authSlice";
 import { useGetMyBookQuery } from "../../../Redux/features/Book/bookApi";
-import { TBook } from "../../../type/Types";
+import { TBook, TUser } from "../../../type/Types";
 
 
 
@@ -14,7 +14,7 @@ const Profile = () => {
   }, []);
 
     const user = useAppSelector(useCurrentUser);
-    const { name, email, phone, address } = user || null;
+    const { name, email, phone, address } = user as unknown as TUser;
 
     const { data } = useGetMyBookQuery(undefined);
    

@@ -17,7 +17,7 @@ const UpdateProfile = () => {
     const { register, handleSubmit } = useForm<TUser>();
     const dispatch = useAppDispatch();
     const user = useAppSelector(useCurrentUser);
-    const { name, email, phone, address, _id: userId } = user || null;
+    const { name, email, phone, address, _id: userId } = user as unknown as TUser;
     const navigate = useNavigate();
 
     const token = useAppSelector(useCurrentToken);

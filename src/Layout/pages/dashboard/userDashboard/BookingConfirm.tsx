@@ -16,10 +16,9 @@ const BookingConfirm = () => {
     const navigate = useNavigate();
     const [ addBooked ] = useAddBookMutation();
     const useBooked: any = useAppSelector(useBookedCar);
-    const bookingDetail = useAppSelector(useConfirmBooking);
+    const bookingDetail: any = useAppSelector(useConfirmBooking) ;
     const useUser = useAppSelector(useCurrentUser) as unknown as TUser; 
     const carId = useBooked?._id;
-
 
     const handleConfirm = async () => {
         const bookedInfo = {

@@ -14,7 +14,7 @@ const Payment = () => {
   }, []);
     const  { data } = useGetMyBookQuery(undefined);
     const booked = data?.data;
-   
+   console.log(booked)
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -81,7 +81,9 @@ const handlePayment = async (product: TBook) => {
                         <p className="p-2 text-amber-600 rounded font-semibold">Not Confirmed</p>
                       ) : (
                         product?.paymentStatus === "Pending" ? (
-                          <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
+                        product?.endTime ? (<button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>) : (
+                          <p className="dark:text-black text-purple-600">Return Uncomfirmed</p>
+                        )
                         ) : (
                           <p className="p-2 text-green-600 rounded font-semibold">Paid</p>
                         )

@@ -23,7 +23,7 @@ const ManageReturn = () => {
             endTime: new Date(),
     };
     const res = await returnCar({ data }).unwrap();
-  
+
     if (res?.success){
         Swal.fire({
           icon: "success",
@@ -37,7 +37,7 @@ const ManageReturn = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: res?.error?.message || "An Error occured"
+          text: "End time must be after start time"
         });
        }
     }
@@ -89,12 +89,13 @@ user ? ( user?.length && user?.map((product: TBook, index: number) => (
      <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.name} </td>
    <td className="px-6 py-4 whitespace-nowrap">{product?.payment?.startTime} </td>
    <td className="px-6 py-4 whitespace-nowrap">{product?.payment?.exprirationDate}</td>
-   <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.pricePerHour}/-</td>
+   <td className="px-6 py-4 whitespace-nowrap">{product?.carId?.status}/-</td>
    <td className="px-6 py-4 whitespace-nowrap">
        {
-       product?.carId?.status === "unavailable" ? 
-       ( <button onClick={() => handleReturn(product?._id)} className="font-semibold text-gray-800 px-3 py-1.5 bg-amber-600 dark:text-white rounded hover:bg-amber-500">Return Car</button>) : ( <span className="font-semibold text-amber-600">Available</span> )
-       }
+      
+        product?.endTime !== null ? (<span className="font-semibold text-amber-600">Available</span>) :
+        (<button onClick={() => handleReturn(product?._id)} className="font-semibold text-gray-800 px-3 py-1.5 bg-amber-600 dark:text-white rounded hover:bg-amber-500">Return Car</button>)
+        }
        </td>
 
 </tr>

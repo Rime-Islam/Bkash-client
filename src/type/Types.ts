@@ -15,7 +15,7 @@ export type TCar = {
     name: string;
     type: ["SUV" | "Sedan" | "hybrid"];
     color: string;
-    features: string[];
+    features: string[] | string | any;
     description: string ;
     pricePerHour: number;
     image: any;

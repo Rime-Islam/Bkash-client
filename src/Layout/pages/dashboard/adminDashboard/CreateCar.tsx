@@ -45,7 +45,7 @@ const CreateCar = () => {
           const image = uploadedImageURL;
           const description = data.description;
 
-        const res = await createACar( {
+        const res: any = await createACar( {
          name, features, type, color, image, isElectric, pricePerHour, description, status,
         });
 
