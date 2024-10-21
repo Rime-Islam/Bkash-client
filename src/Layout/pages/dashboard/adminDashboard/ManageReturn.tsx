@@ -1,16 +1,21 @@
 import Swal from "sweetalert2";
 import { useGetAllBookQuery } from "../../../../Redux/features/Book/bookApi";
-import { useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
+import { useReturnCarMutation } from "../../../../Redux/features/Car/carApi";
 import { TBook } from "../../../../type/Types";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const ManageReturn = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const [ returnCar ] = useReturnCarMutation();
     const { data, isLoading } = useGetAllBookQuery(undefined);
     const user = data?.data;
 
-console.log(user)
+
     const handleReturn = async ( id: string ) => {
       
         const data = {
@@ -18,14 +23,16 @@ console.log(user)
             endTime: new Date(),
     };
     const res = await returnCar({ data }).unwrap();
-    console.log(res)
+  
     if (res?.success){
         Swal.fire({
           icon: "success",
           title: res?.message,
           showConfirmButton: false,
           timer: 1500
-        })
+        }).then(() => {
+          window.location.reload();
+      });
        } else {
         Swal.fire({
           icon: "error",
@@ -41,13 +48,15 @@ console.log(user)
 
     return (
         <>
-        <div className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">Car Return Managemen</div>
+        <div data-aos="fade-up"
+     data-aos-duration="2000" className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">Car Return Management</div>
         <div className="flex justify-center">
 <div className="flex mt-5 gap-5 md:gap-8 ">
    {/* all added products  */}
    <div>
    <table className="min-w-full divide-y divide-gray-200">
-<thead>
+<thead data-aos="fade-right"
+     data-aos-duration="2000">
 <tr>
 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
 Index
@@ -69,7 +78,8 @@ Action
 </th>
 </tr>
 </thead>
-<tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
+<tbody data-aos="fade-left"
+     data-aos-duration="2000" className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
 {
 user ? ( user?.length && user?.map((product: TBook, index: number) => (
 <tr key={product._id}>

@@ -3,9 +3,15 @@ import { useGetMyBookQuery } from "../../../../Redux/features/Book/bookApi";
 import { useAppDispatch } from "../../../../Redux/app/hook";
 import { carPayment } from "../../../../Redux/features/Book/BookSlice";
 import { TBook } from "../../../../type/Types";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Payment = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const  { data } = useGetMyBookQuery(undefined);
     const booked = data?.data;
    
@@ -22,7 +28,8 @@ const handlePayment = async (product: TBook) => {
     return (
         <div>
             <table className="min-w-full  divide-y divide-gray-200">
-  <thead>
+  <thead data-aos="fade-left"
+                    data-aos-duration="2500">
     <tr>
       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Index
@@ -47,7 +54,8 @@ const handlePayment = async (product: TBook) => {
       </th>
     </tr>
   </thead>
-  <tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
+  <tbody data-aos="fade-right"
+                    data-aos-duration="2500" className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
       {
     booked ? (
         booked?.length && booked?.map((product: TBook, index: number) => (
@@ -65,26 +73,21 @@ const handlePayment = async (product: TBook) => {
                   <td className="px-3 py-4 whitespace-nowrap">
                
                   {
-                    product?.totalCost !== 0 ? ( 
-                      
-                        product?.paymentStatus === "pending" ? (
-                          <p className="font-semibold text-green-600">Paid</p>
-                            
-                        ) : (
-                          <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
-                        )
-                    
-                    ) : (
+                 
                      product?.isBooked === 'canceled' ? (
                       <p className="p-2 text-red-600 rounded font-semibold">Canceled</p>
                      ) : (
                       product?.isBooked === 'unconfirmed' ? (
                         <p className="p-2 text-amber-600 rounded font-semibold">Not Confirmed</p>
                       ) : (
-                        <p className="p-2 text-green-600 rounded font-semibold">Confirmed</p>
+                        product?.paymentStatus === "Pending" ? (
+                          <button onClick={() => handlePayment(product)} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Proceed To Pay</button>
+                        ) : (
+                          <p className="p-2 text-green-600 rounded font-semibold">Paid</p>
+                        )
                       )
                      )
-                    )
+                    
                     
                   }
                     </td>

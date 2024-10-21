@@ -6,10 +6,16 @@ import Swal from "sweetalert2";
 import { TCar } from "../../../../type/Types";
 import { useGetSingleCarQuery, useUpdateACarMutation } from "../../../../Redux/features/Car/carApi";
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const UpdateCar = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  
   const navigate = useNavigate();
   const { id } = useParams();
   const { data} = useGetSingleCarQuery(id);
@@ -33,8 +39,7 @@ const UpdateCar = () => {
       const featuresArray = data.features.split(',').map((feature: string) => feature.trim());
       
       const isElectric = data.isElectric  === true || car?.isElectric === true;
-      const pricePerHour = Number(data.pricePerHour) || car?.pricePerHour
-      ;
+      const pricePerHour = Number(data.pricePerHour) || car?.pricePerHour;
 
          const name = data.name || car?.name;
           const features = featuresArray || car?.features;
@@ -46,7 +51,7 @@ const Data= {
 }
 
         const res = await updateACar({ id, Data}).unwrap();
-        console.log(res)
+       
         if (res?.success){
           Swal.fire({
             icon: "success",
@@ -66,10 +71,11 @@ const Data= {
          
       };
     return (
-        <div className="mb-12">
+        <div data-aos="fade-up"
+        data-aos-duration="2000"  className="mb-12">
         <div className="max-w-5xl mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
 <div className="text-2xl py-4 px-6 text-white bg-[#FC7E01] hover:bg-amber-500 rounded text-center font-bold uppercase">
-Create A Product
+Update A Product
 </div>
 <form onSubmit={handleSubmit(onSubmit)} className="py-4 px-6 " action="" method="POST">
 

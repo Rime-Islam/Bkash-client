@@ -5,10 +5,17 @@ import Swal from "sweetalert2";
 import { useAppDispatch } from "../../../Redux/app/hook";
 import { verifyToken } from "../../../utils/verifyToken";
 import { TUser, setUser } from "../../../Redux/features/Auth/authSlice";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const Login = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
+    
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
@@ -57,7 +64,8 @@ console.log(res)
    <div className="bg-cover bg-center bg-fixed"
     style={{ backgroundImage: 'url("/login1.jpg")' }}
     >
-    <div className="h-screen flex justify-center items-center">
+    <div data-aos="zoom-in"
+                    data-aos-duration="2500" className="h-screen flex justify-center items-center">
         <div className="bg-black bg-opacity-50 mx-4 p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
         <h1 className="text-3xl font-bold mb-8 text-center text-white">Login</h1>
         <form onSubmit={handleLogin}>

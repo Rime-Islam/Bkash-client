@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const About = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
+      
     return (
         <div className="bg-white dark:bg-gray-700">
             {/* section 1  */}
-            <div>
+            <div data-aos="fade-up"
+        data-aos-duration="2500">
                 <img className="w-full h-[70vh]" src="/about.jpg" alt="about us image" />
                 <div className="text-3xl text-white font-bold absolute top-[56vh] left-[45vw]">About Us!</div>
             </div>
                     {/* section 2 */}
-        <section className="">
+        <section data-aos="zoom-in"
+        data-aos-duration="2500">
             <div className="py-12 bg-white dark:bg-gray-700 ">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
@@ -86,7 +94,8 @@ const About = () => {
             <div className="mt-5">
         <div className="h-[70vh] bg-fixed bg-center bg-cover" style={{ backgroundImage: 'url("/parallax1.webp")' }}>
                 <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
-                   <div>
+                   <div data-aos="fade-down-right"
+        data-aos-duration="2500">
                    <h1 className="text-white text-3xl font-bold">YOUR NEXT TRAVEL WITH US?</h1>
                     <p className="text-white text-center">Use our online tool to calculate
                     the total cost of your ride</p>
@@ -107,7 +116,8 @@ const About = () => {
         </div>
 
             {/* section 3 */}
-        <section className="text-center py-10 md:py-20 px-4">
+        <section data-aos="fade-right"
+        data-aos-duration="2500" className="text-center py-10 md:py-20 px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-black dark:text-white">Mission And Values</h2>
         <p className="mt-4 text-gray-500 dark:text-white max-w-2xl mx-auto">
         Our mission is to provide exceptional healthcare services with a focus on
@@ -126,7 +136,8 @@ const About = () => {
         </section>
 
     {/* section 4 */}
-        <div className="bg-gray-100 dark:bg-gray-700">
+        <div data-aos="fade-left"
+        data-aos-duration="2500" className="bg-gray-100 dark:bg-gray-700">
     <div className="py-10 max-w-screen-xl mx-auto">
     <div className="text-center pb-16">
     
@@ -201,10 +212,12 @@ const About = () => {
 
         {/* section 5 */}
         <div className="text-center p-8 text-gray-900 dark:text-white">
-  <h2 className="font-bold text-2xl  md:text-4xl ">
+  <h2 data-aos="zoom-in"
+        data-aos-duration="2500" className="font-bold text-2xl  md:text-4xl ">
     Variety Of Cars
   </h2>
-  <div className="flex flex-wrap items-center mt-20 justify-center">
+  <div data-aos="fade-right"
+        data-aos-duration="2500" className="flex flex-wrap items-center mt-20 justify-center">
     <div className="">
       <img
         src="/about1.jpeg"
@@ -222,7 +235,8 @@ const About = () => {
     </div>
   </div>
 
-  <div className="flex flex-wrap items-center mt-20 justify-center">
+  <div data-aos="fade-left"
+        data-aos-duration="2500" className="flex flex-wrap items-center mt-20 justify-center">
     <div className="">
       <img
         src="/about2.jpg"
@@ -241,7 +255,8 @@ const About = () => {
     </div>
   </div>
 
-  <div className="flex flex-wrap items-center mt-20 justify-center">
+  <div data-aos="fade-right"
+        data-aos-duration="2500" className="flex flex-wrap items-center mt-20 justify-center">
     <div className="">
       <img
         src="/about3.webp"

@@ -5,8 +5,15 @@ import { setUser, useCurrentToken, useCurrentUser } from "../../../../Redux/feat
 import { useUpdateUserMutation } from "../../../../Redux/features/User/UserApi";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const UpdateProfile = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const { register, handleSubmit } = useForm<TUser>();
     const dispatch = useAppDispatch();
     const user = useAppSelector(useCurrentUser);
@@ -43,11 +50,13 @@ const UpdateProfile = () => {
     return (
         <div className="mb-12">
         <div className="max-w-5xl mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
-<div className="text-2xl py-2 px-6 text-white bg-[#FC7E01] hover:bg-amber-500 rounded text-center font-bold uppercase">
-Create A Product
+<div data-aos="fade-down"
+                    data-aos-duration="1500" className="text-2xl py-2 px-6 text-white bg-[#FC7E01] hover:bg-amber-500 rounded text-center font-bold uppercase">
+Check Your Profile
 </div>
 <form onSubmit={handleSubmit(onSubmit)} className="py-4 bg-white dark:bg-gray-600 px-6 text-white" action="" method="POST">
-<div className="mb-4 flex-1 ">
+<div data-aos="fade-left"
+                    data-aos-duration="1500" className="mb-4 flex-1 ">
   <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="name">
    Full Name
   </label>
@@ -63,7 +72,8 @@ Create A Product
   />
 </div>
 
-<div className="mb-4 flex-1">
+<div data-aos="fade-left"
+                    data-aos-duration="2000" className="mb-4 flex-1">
   <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="phone">
     Email Address
   </label>
@@ -78,7 +88,8 @@ Create A Product
   />
 </div>
 
-<div className="mb-4 flex-1">
+<div data-aos="fade-left"
+                    data-aos-duration="2500" className="mb-4 flex-1">
   <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="date">
     Phone Number
   </label>
@@ -92,7 +103,8 @@ Create A Product
     required
   />
 </div>
-<div className="mb-4 flex-1">
+<div data-aos="fade-left"
+                    data-aos-duration="3000" className="mb-4 flex-1">
   <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="date">
     Your Address
   </label>
@@ -107,7 +119,8 @@ Create A Product
   />
 </div>
 
-<div className="flex items-center justify-center mb-4">
+<div data-aos="fade-up"
+                    data-aos-duration="2500" className="flex items-center justify-center mb-4">
   <button
     className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded"
     type="submit"

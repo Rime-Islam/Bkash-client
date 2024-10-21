@@ -1,13 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import { useAppDispatch } from "../../Redux/app/hook";
-import { useGetSingleCarQuery } from "../../Redux/features/Car/CarApi";
+import { useGetSingleCarQuery } from "../../Redux/features/Car/carApi";
 import { TCar } from "../../type/Types";
 import { useState } from "react";
 import ReactImageMagnify from 'react-image-magnify';
 import { bookedCar } from "../../Redux/features/Book/BookSlice";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const CarDetails = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { data, isLoading } = useGetSingleCarQuery(id);
@@ -44,14 +51,13 @@ const handleBook = () => {
   dispatch(bookedCar(addedCar));
 }
 
-
-
     return (
       <div className="flex justify-center mt-12">
         <div className="flex-col md:flex-row justify-between flex gap-4 items-start mx-4 py-12">
   <div className="flex bg-white rounded-lg shadow dark:bg-gray-800 flex-col md:flex-row">
     <div className=" w-full md:w-96 flex justify-center items-center">
-    <div className="rounded-lg w-96 dark:bg-gray-700 mb-4">
+    <div data-aos="fade-left"
+                    data-aos-duration="2500" className="rounded-lg w-96 dark:bg-gray-700 mb-4">
       <ReactImageMagnify
          {
           ...{
@@ -72,7 +78,8 @@ const handleBook = () => {
       />
     </div>
     </div>
-    <div className="flex-1 p-6">
+    <div data-aos="fade-up"
+                    data-aos-duration="2500" className="flex-1 p-6">
       <div className="flex flex-wrap">
         <h1 className="flex-auto text-2xl font-semibold dark:text-gray-50">
           {car?.name}
@@ -105,7 +112,8 @@ const handleBook = () => {
         <div className="py-2 px-4 mt-5 bg-[#70AABD]  text-white w-full text-center text-base font-semibold shadow-md rounded-lg ">Not Available</div>
       ) : (
         <Link to='/dashboard/booking'>
-        <button onClick={handleBook} className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+        <button data-aos="zoom-in"
+                    data-aos-duration="2500" onClick={handleBook} className="py-2 px-4 mt-5 bg-[#70AABD] hover:bg-[#A3CADB]  text-white w-full text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
           Book now
         </button>
         </Link>

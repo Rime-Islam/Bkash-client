@@ -3,8 +3,15 @@ import { useDeleteBookMutation, useGetMyBookQuery } from "../../../../Redux/feat
 import { TBook } from "../../../../type/Types";
 import Swal from "sweetalert2";
 import { useReturnCarMutation } from "../../../../Redux/features/Car/CarApi";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const BookingManagement = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const [ returnCar ] = useReturnCarMutation();
   const { data } = useGetMyBookQuery(undefined);
   const booked = data?.data;
@@ -53,7 +60,8 @@ console.log(booked)
   return (
     <div>
             <table className="min-w-full divide-y divide-gray-200">
-  <thead>
+  <thead data-aos="fade-right"
+                    data-aos-duration="2500">
     <tr>
       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
         Index
@@ -78,7 +86,8 @@ console.log(booked)
       </th>
     </tr>
   </thead>
-  <tbody className="bg-white dark:bg-gray-700 text-black dark:text-gray-100 divide-y divide-gray-200">
+  <tbody data-aos="fade-left"
+                    data-aos-duration="2500" className="bg-white dark:bg-gray-700 text-black dark:text-gray-100 divide-y divide-gray-200">
       {
      booked?.length ? (booked?.map((product: TBook, index: number) => (
       <tr key={product._id}>

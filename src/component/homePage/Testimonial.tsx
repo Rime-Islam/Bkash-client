@@ -17,7 +17,8 @@ const Testimonial = () => {
       </p>
     </div>
     <div className="gap-8 space-y-8 md:columns-2 lg:columns-3">
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-left"
+        data-aos-duration="2500"  className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"
@@ -45,7 +46,8 @@ const Testimonial = () => {
           and add a touch of luxury to my car's interior. Highly recommend!
         </p>
       </div>
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-right"
+        data-aos-duration="2500"  className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"
@@ -75,7 +77,8 @@ const Testimonial = () => {
           color to match my car's interior. The material feels very durable.
         </p>
       </div>
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-left"
+        data-aos-duration="2500" className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"
@@ -103,7 +106,8 @@ const Testimonial = () => {
           padding and ergonomic design make a huge difference in comfort.
         </p>
       </div>
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-right"
+        data-aos-duration="2500"  className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"
@@ -131,7 +135,8 @@ const Testimonial = () => {
           car looks and feels much more upscale now.
         </p>
       </div>
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-left"
+        data-aos-duration="2500" className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"
@@ -159,7 +164,8 @@ const Testimonial = () => {
           significantly improved the look of my car's interior.
         </p>
       </div>
-      <div className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
+      <div data-aos="fade-right"
+        data-aos-duration="2500"  className="p-8 bg-white border border-gray-100 shadow-2xl aspect-auto rounded-3xl shadow-gray-600/10">
         <div className="flex gap-4 items-start">
           <img
             className="w-12 h-12 rounded-full"

@@ -4,11 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useRegisterUserMutation } from "../../../Redux/features/Auth/authApi";
 import { TUser } from "../../../type/Types";
-
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Register = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [ registerUser, { isLoading } ] = useRegisterUserMutation();
@@ -65,7 +69,8 @@ const Register = () => {
         <div>
   <div className="min-h-screen bg-gray-100 dark:bg-gray-700 text-gray-900 flex justify-center">
     <div className="max-w-screen-xl lg:mt-5  bg-white dark:bg-gray-700 shadow rounded-lg flex justify-center flex-1">
-      <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+      <div data-aos="fade-right"
+                    data-aos-duration="2500" className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
         <div>
         <div className="flex justify-center">
             <img
@@ -196,7 +201,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
+      <div data-aos="fade-left"
+                    data-aos-duration="2500" className="flex-1 bg-indigo-100 text-center hidden lg:flex">
         <div
           className="m-12 xl:m-16 w-full  bg-cover bg-no-repeat"
           style={{

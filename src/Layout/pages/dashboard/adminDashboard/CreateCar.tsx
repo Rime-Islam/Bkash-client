@@ -3,12 +3,19 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowDown } from "react-icons/io";
 import { TCar } from "../../../../type/Types";
 import { uploadImage } from "../../../../hook/UploadImage";
-import { useCreateACarMutation } from "../../../../Redux/features/Car/CarApi";
+import { useCreateACarMutation } from "../../../../Redux/features/Car/carApi";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const CreateCar = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  
     const { register, handleSubmit } = useForm<TCar>();
     const [status, setStatus] = useState('available');
     const [type, setType] = useState('SUV');
@@ -61,7 +68,8 @@ const CreateCar = () => {
          
       };
     return (
-        <div className="mb-12">
+        <div data-aos="fade-up"
+        data-aos-duration="2000" className="mb-12">
         <div className="max-w-5xl mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
 <div className="text-2xl py-4 px-6 text-white bg-[#FC7E01] hover:bg-amber-500 rounded text-center font-bold uppercase">
 Create A Product

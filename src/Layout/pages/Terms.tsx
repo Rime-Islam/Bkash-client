@@ -1,8 +1,15 @@
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Terms = () => {
+    useEffect(() => {
+      AOS.init();
+    }, []);
     return (
-        <div className="p-12">
+        <div data-aos="fade-up"
+        data-aos-duration="2500" className="p-12">
             <div className="bg-white text-black dark:bg-gray-700 dark:text-white">
   <div className="container mx-auto px-4 py-8">
     <p className="mb-4">Effective Date: 2024-7-15</p>

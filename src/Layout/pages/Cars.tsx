@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/app/hook";
 import {  filterCars, filteredCars, setAllCar, setFilters,  } from "../../Redux/features/Car/CarSlice";
 import { useForm } from "react-hook-form";
-
 import { TCar } from "../../type/Types";
-import { useGetAllCarQuery } from "../../Redux/features/Car/CarApi";
+import { useGetAllCarQuery } from "../../Redux/features/Car/carApi";
 import { useEffect } from "react";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Cars = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const { data, isLoading } = useGetAllCarQuery(undefined);
     const filterCarFromState = useAppSelector(filteredCars);
     const { register, handleSubmit } = useForm();
@@ -26,7 +29,7 @@ const Cars = () => {
     }
 
   const cars = data?.data.cars;
-   console.log(filterCarFromState)
+  
 
  const carTypes = ["SUV", "Sedan", "hybrid"];
  const colors = ["Red", "Black", "White", "Blue", "Wine", "Yellow", "Gray"];
@@ -34,7 +37,7 @@ const Cars = () => {
 
 
  const onSubmit = (filterCriteria: any) => {
-  console.log(filterCriteria)
+
   dispatch(setFilters(filterCriteria));
   dispatch(filterCars());
  };
@@ -49,7 +52,8 @@ const Cars = () => {
 <div className="md:flex gap-2 lg:gap-4 lg:px-0">
    {/* filter section  */}
 <div>
-<form onSubmit={handleSubmit(onSubmit)}>
+<form data-aos="fade-left"
+        data-aos-duration="2500" onSubmit={handleSubmit(onSubmit)}>
 
 <div className="mb-4">
             <label
@@ -100,7 +104,8 @@ const Cars = () => {
 </div>
 
         {/* card section  */}
-        <div className="pt-4 md:pt-8  mx-auto ">
+        <div data-aos="fade-right"
+                    data-aos-duration="2500" className="pt-4 md:pt-8  mx-auto ">
          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4">
 
             {/* CARD */}

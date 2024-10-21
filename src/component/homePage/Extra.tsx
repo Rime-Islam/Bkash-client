@@ -5,7 +5,8 @@ const Extra = () => {
     return (
         <div className="py-10 bg-white dark:bg-gray-700  md:py-20 max-w-6xl mx-auto">
   <div className=" px-8 lg:flex lg:justify-center ">
-    <div className="text-center flex-1 lg:text-left lg:mt-16">
+    <div data-aos="fade-right"
+     data-aos-duration="2000" className="text-center flex-1 lg:text-left lg:mt-16">
     <h1 className="text-2xl lg:text-4xl font-bold leading-7">
       We Are More Than <br /> <span className="text-[#FC7E01] dark:text-white">A Car Rental Company</span>
       </h1>
@@ -26,7 +27,8 @@ const Extra = () => {
         </button>
         </Link>
     </div>
-    <div className="flex-1">
+    <div data-aos="fade-left"
+     data-aos-duration="2000" className="flex-1">
       <div className="flex justify-center">
       <img className="h-[60vh]" src="https://i.ibb.co/kHDBrD2/istockphoto-504344649-612x612.jpg" alt="" />
       </div>

@@ -1,9 +1,14 @@
 import Swal from "sweetalert2";
 import { useGetAllUserQuery, useUpdateUserMutation } from "../../../../Redux/features/User/UserApi";
 import { TUser } from "../../../../type/Types";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const UserManagement = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const { data, isLoading  } = useGetAllUserQuery(undefined);
     const user = data?.data;
     const [updateUserRole] = useUpdateUserMutation();
@@ -115,13 +120,14 @@ const handleAdmin = async (userId: string) => {
 
     return (
         <>
-                 <div className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">User Managemen</div>
+                 <div className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">User Management</div>
                  <div className="flex justify-center">
         <div className="flex mt-5 gap-5 md:gap-8 ">
             {/* all added products  */}
             <div>
             <table className="min-w-full divide-y divide-gray-200">
-  <thead>
+  <thead data-aos="fade-right"
+     data-aos-duration="2000">
     <tr>
       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
         Index
@@ -146,7 +152,8 @@ const handleAdmin = async (userId: string) => {
       </th>
     </tr>
   </thead>
-  <tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
+  <tbody data-aos="fade-left"
+     data-aos-duration="2000" className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
       {
     user ? ( user?.length && user?.map((product: TUser, index: number) => (
       <tr key={product._id}>

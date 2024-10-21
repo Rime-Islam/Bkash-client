@@ -5,9 +5,14 @@ import { useBookedCar, useConfirmBooking } from "../../../../Redux/features/Book
 import { useCurrentUser } from "../../../../Redux/features/Auth/authSlice";
 import { TUser } from "../../../../type/Types";
 import Swal from "sweetalert2";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const BookingConfirm = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const navigate = useNavigate();
     const [ addBooked ] = useAddBookMutation();
     const useBooked: any = useAppSelector(useBookedCar);
@@ -43,9 +48,11 @@ const BookingConfirm = () => {
 
     return (
        <>
-       <h1 className="text-3xl font-bold text-center mb-8">Review Your Booking</h1>
+       <h1 data-aos="fade-right"
+                    data-aos-duration="2500" className="text-3xl font-bold text-center mb-8">Review Your Booking</h1>
         <div className="flex space-x-4">
-        <div className="bg-white flex-1 overflow-hidden shadow rounded-lg border mx-4 box">
+        <div data-aos="fade-up"
+                    data-aos-duration="2500" className="bg-white flex-1 overflow-hidden shadow rounded-lg border mx-4 box">
           <div className="px-4 py-5 sm:px-6">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-medium text-gray-900">
@@ -86,7 +93,8 @@ const BookingConfirm = () => {
             </dl>
           </div>
         </div>
-        <div className="bg-white flex-1 overflow-hidden shadow rounded-lg border box">
+        <div data-aos="fade-down"
+                    data-aos-duration="2500" className="bg-white flex-1 overflow-hidden shadow rounded-lg border box">
           <div className="px-4 py-5 sm:px-6">
             <div className="flex justify-between items-center">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -134,7 +142,8 @@ const BookingConfirm = () => {
         </div>
       </div>
 
-      <div className="my-12 flex justify-center">
+      <div data-aos="fade-left"
+                    data-aos-duration="2500" className="my-12 flex justify-center">
         <button onClick={handleConfirm} className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded">Confirm Booking</button>
       </div>
        </>

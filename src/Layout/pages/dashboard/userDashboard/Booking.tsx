@@ -3,9 +3,15 @@ import { TBookingForm } from "../../../../type/Types";
 import { useAppDispatch, useAppSelector } from "../../../../Redux/app/hook";
 import { confirmBooking, useBookedCar } from "../../../../Redux/features/Book/BookSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Booking = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const { register, handleSubmit } = useForm<TBookingForm>();
     const useBooked: any = useAppSelector(useBookedCar);
     const navigate = useNavigate();
@@ -24,7 +30,8 @@ Book A Car
 </div>
 <form onSubmit={handleSubmit(onSubmit)} className="py-4 px-6 " action="" method="POST">
 
-<div className="lg:flex gap-5">
+<div data-aos="fade-right"
+                    data-aos-duration="2500" className="lg:flex gap-5">
 <div className="mb-4 flex-1 ">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="nidOrPassport">
    NID / Passport
@@ -54,7 +61,8 @@ Book A Car
 </div>
 </div>
 
-<div className="lg:flex gap-5">
+<div data-aos="fade-left"
+                    data-aos-duration="2500" className="lg:flex gap-5">
 <div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="drivingLicense">
   Driving License
@@ -84,7 +92,8 @@ Book A Car
 </div>
 </div>
 
-<div className="lg:flex gap-5">
+<div data-aos="fade-right"
+                    data-aos-duration="2500" className="lg:flex gap-5">
 <div className="mb-4 flex-1">
   <label className="block text-gray-700 font-bold mb-2" htmlFor="exprirationDate">
     Expriration Date
@@ -114,7 +123,8 @@ Book A Car
 </div>
 
 <div>
-<div className="max-w-md mb-12  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+<div data-aos="zoom-out"
+                    data-aos-duration="2500" className="max-w-md mb-12  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
   <div className="md:flex">
     <div className="md:shrink-0">
       <img
@@ -143,7 +153,8 @@ Book A Car
 
 </div>
 
-<div className="flex items-center justify-center my-8">
+<div data-aos="zoom-in"
+                    data-aos-duration="2500" className="flex items-center justify-center my-8">
   <button
     className="text-white font-semibold bg-[#FC7E01] hover:bg-amber-500 py-2 px-4 rounded"
     type="submit"

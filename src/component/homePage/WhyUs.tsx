@@ -3,7 +3,8 @@ const WhyUs = () => {
     return (
         <div className="bg-white dark:bg-gray-700">
             {/* part 1  */}
-            <div className="text-gray-900 dark:text-white body-font">
+            <div  data-aos="zoom-out"
+        data-aos-duration="2000" className="text-gray-900 dark:text-white body-font">
             <h1 className="flex justify-center pt-10 text-4xl font-regular">Why Choose Us?</h1>
             <div className="container px-5 py-12 mx-auto">
                 <div className="flex gap-5 md:gap-8 lg:gap-12 flex-wrap text-center justify-center">
@@ -64,7 +65,8 @@ const WhyUs = () => {
             </div>
 
         {/* part 2  */}
-        <div className=" ">
+        <div  data-aos="zoom-in"
+        data-aos-duration="2500">
         <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
             <div className="col-span-2 mb-8">
             <p className="text-lg font-medium text-[#FC7E01] dark:text-[#FC7E01]">

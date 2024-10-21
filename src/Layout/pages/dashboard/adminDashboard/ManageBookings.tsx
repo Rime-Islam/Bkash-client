@@ -4,9 +4,16 @@ import { TCar } from "../../../../type/Types";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 const ManageBookings = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const { data, isLoading } = useGetAllCarQuery(undefined);
   const car = data?.data?.cars;
   const [deleteCar] = useDeleteACarMutation();
@@ -27,7 +34,7 @@ const handleDelete = async (carId: string | undefined) => {
     }).then( async (result) => {
       if (result.isConfirmed) {
         const res = await deleteCar({ carId }).unwrap();
-        console.log("jsdjj",res)
+       
          if (res?.success) {
           Swal.fire({
             title: "Deleted!",
@@ -48,11 +55,12 @@ const handleDelete = async (carId: string | undefined) => {
 
 
     return (
-   <>   <div className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">Car Managemen</div>
+   <>   <div className="text-2xl text-center font-semibold mb-4 text-[#70AABD] md:mb-8">Car Management</div>
    <div className="flex justify-center">
    <div className="flex mt-5 gap-5 md:gap-8 ">
      {/* create product button  */}
-     <div className="md:mt-10 ">
+     <div data-aos="fade-up"
+     data-aos-duration="2000" className="md:mt-10 ">
      <Link
      to="/dashboard/create_car">
      <button className="px-6 py-2 min-w-[120px] text-center text-white bg-[#FC7E01] hover:bg-amber-600 border border-[#FC7E01] rounded"
@@ -62,9 +70,10 @@ const handleDelete = async (carId: string | undefined) => {
    </Link>
      </div>
        {/* all added products  */}
-       <div>
+       <div >
        <table className="min-w-full divide-y divide-gray-200">
-<thead>
+<thead data-aos="fade-right"
+     data-aos-duration="2000">
 <tr>
  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
    Index
@@ -95,7 +104,8 @@ const handleDelete = async (carId: string | undefined) => {
  </th>
 </tr>
 </thead>
-<tbody className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
+<tbody data-aos="fade-left"
+     data-aos-duration="2000" className="bg-white dark:bg-gray-700 text-black dark:text-white divide-y divide-gray-200">
  {
 car?.length && car?.map((product: TCar, index: number) => (
 <tr key={product._id}>

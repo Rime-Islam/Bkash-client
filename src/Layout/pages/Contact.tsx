@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
     return (
         <div className="bg-white dark:bg-gray-700">
                         <section className="">
-  <div
+  <div data-aos="zoom-out"
+        data-aos-duration="2500"
     id="map"
     className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat"
   >
@@ -17,7 +27,8 @@ const Contact = () => {
       loading="lazy"
     />
   </div>
-  <div className="container px-6 md:px-12">
+  <div data-aos="fade-up"
+        data-aos-duration="2500" className="container px-6 md:px-12">
     <div className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] dark:bg-gray-700 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
       <div className="flex flex-wrap">
         <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
@@ -193,11 +204,12 @@ const Contact = () => {
     {/* parallux section  */}
         <div className="h-[70vh] bg-fixed bg-center bg-cover" style={{ backgroundImage: 'url("/login1.jpg")' }}>
                 <div className="flex items-end justify-center h-full bg-black bg-opacity-50">
-                   <div className="bg-black mb-5 p-4 rounded-lg bg-opacity-50">
+                   <div  className="bg-black mb-5 p-4 rounded-lg bg-opacity-50">
                    <h1 className="text-white text-center font-bold mb-3">Want To See More Booking Examples?</h1>
                     <p className="text-white text-3xl text-center">Click on the button below to see eleven <br />
                     new examples of the booking form</p>
-                   <div className="flex justify-center mt-8">
+                   <div data-aos="fade-left"
+        data-aos-duration="2500" className="flex justify-center mt-8">
                  <Link to="/cars">
                  <button className="px-6 py-2 min-w-[120px] text-center text-white bg-amber-600 rounded active:text-amber-600 hover:bg-amber-500 ">
                         See Examples
@@ -212,7 +224,8 @@ const Contact = () => {
 
         {/* last section  */}
             {/* section 6  */}
-      <div className="bg-gray-100 dark:bg-gray-700 py-12">
+      <div data-aos="fade-up"
+        data-aos-duration="2500" className="bg-gray-100 dark:bg-gray-700 py-12">
   <div className="max-w-4xl mx-auto px-6 lg:px-8">
     <div className="lg:text-center">
       <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">
