@@ -3,19 +3,24 @@ import { useForm } from "react-hook-form";
 import { TLoginData } from "../../../type/Types";
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
+import { useAuth } from "../../../utils/AuthContext";
 
 
 const Login = () => {
-    const { register, handleSubmit, reset } = useForm<TLoginData>();
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm<TLoginData>();
     const navigate = useNavigate();
     const api = useAxios(); 
-
+    const { login } = useAuth();
+    
     const onSubmit = async (data: TLoginData) => {
         try {
           const res = await api.post("/auth/login", data);
         
           localStorage.setItem("token", res.data.token);
+          
          if (res?.status === 200){
+            login(res.data.token, res.data.user);
+
                     Swal.fire({
                       icon: "success",
                       title: res.data.message,
@@ -69,13 +74,18 @@ const Login = () => {
           PIN (5-digit)
         </label>
         <input
-          className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
-          id="pin"
-          type="password"
-          placeholder="Enter Your PIN"
-          {...register("pin", { required: true, minLength: 5, maxLength: 5 })}
-          required
-        />
+    className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+    id="pin"
+    type="password"
+    placeholder="Enter Your PIN"
+    {...register("pin", {
+      required: "PIN is required",
+      minLength: { value: 5, message: "PIN must be exactly 5 digits" },
+      maxLength: { value: 5, message: "PIN must be exactly 5 digits" },
+    })}
+    required
+  />
+  {errors.pin && <p className="text-red-500 text-sm mt-1">{errors.pin.message}</p>}
       </div>
 
       {/* Login Button */}

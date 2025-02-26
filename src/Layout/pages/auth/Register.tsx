@@ -5,7 +5,7 @@ import { TUser } from "../../../type/Types";
 import Swal from "sweetalert2";
 
 const Register = () => {
-    const { register, handleSubmit, reset } = useForm<TUser>();
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm<TUser>();
     const api = useAxios(); 
     const navigate = useNavigate();
     
@@ -68,13 +68,18 @@ const Register = () => {
           PIN (5-digit)
         </label>
         <input
-          className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
-          id="pin"
-          type="text"
-          placeholder="Enter Your PIN"
-          {...register("pin", { required: true, minLength: 5, maxLength: 5 })}
-          required
-        />
+    className="shadow appearance-none bg-white dark:bg-gray-800 border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+    id="pin"
+    type="password"
+    placeholder="Enter Your PIN"
+    {...register("pin", {
+      required: "PIN is required",
+      minLength: { value: 5, message: "PIN must be exactly 5 digits" },
+      maxLength: { value: 5, message: "PIN must be exactly 5 digits" },
+    })}
+    required
+  />
+  {errors.pin && <p className="text-red-500 text-sm mt-1">{errors.pin.message}</p>}
       </div>
 
       {/* Mobile Number */}
