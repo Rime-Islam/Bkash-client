@@ -1,6 +1,6 @@
 import { Outlet,  useLocation  } from "react-router-dom";
-import Navbar from "../component/homePage/Navbar";
-import Footer from "../component/homePage/Footer";
+import Navber from "../components/home/Navber";
+import Footer from "../components/home/Footer";
 
 
 const MainLayOut = () => {
@@ -12,7 +12,7 @@ const MainLayOut = () => {
         <div className="lg:container mx-auto bg-white dark:bg-gray-700">
             <div className=" flex flex-col min-h-[100vh]">
          <div className="flex-grow">
-         { noHeaderFooter || <Navbar></Navbar>}
+         { noHeaderFooter || <Navber></Navber>}
            <div className="container mx-auto">
              <Outlet></Outlet>
              </div>

@@ -1,27 +1,12 @@
-import Banner from "../../component/homePage/Banner";
-import Extra from "../../component/homePage/Extra";
-import Extrafour from "../../component/homePage/Extrafour";
-import ExtraThree from "../../component/homePage/ExtraThree";
-import ExtraTwo from "../../component/homePage/ExtraTwo";
-import Feature from "../../component/homePage/Feature";
-import Review from "../../component/homePage/Review";
-import Testimonial from "../../component/homePage/Testimonial";
-import WhyUs from "../../component/homePage/WhyUs";
+import Ask from "../../components/home/Ask";
+import Banner from "../../components/home/Banner";
 
 
 const Home = () => {
     return (
         <div>
-            <Banner /> 
-            <Extra />
-             <Extrafour />
-             <Feature /> 
-            <WhyUs />
-            <ExtraThree />
-            <ExtraTwo />
-            <Testimonial />
-
-            <Review />
+             <Banner />
+             <Ask />
         </div>
     );
 };
