@@ -4,7 +4,7 @@ export type TUser = {
   mobile: string; 
   balance: number; 
   email: string;
-  accountType: "User" | "Agent"; 
+  accountType: "User" | "Agent" | "Request" | "Admin"; 
   nid: string; 
 };
 export type TLoginData = {
