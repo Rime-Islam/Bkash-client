@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api"; 
+const BASE_URL = "https://bikash-server-code.vercel.app/api"; 
 
 const useAxios = () => {
   const api = axios.create({

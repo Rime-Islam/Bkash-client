@@ -16,7 +16,9 @@ import SendMoney from "../Layout/pages/dashboard/userDashboard/SendMoney";
 import UserCashOut from "../Layout/pages/dashboard/userDashboard/UserCashOut";
 import UserCashIn from "../Layout/pages/dashboard/userDashboard/UserCashIn";
 import UserBalance from "../Layout/pages/dashboard/userDashboard/UserBalance";
-import { AdminRoute, AgentRoute, ProtectedRoute, UserRoute } from "./ProtectedRoute";
+import { ProtectedRoute } from "./ProtectedRoute";
+import BalanceRequest from "../Layout/pages/dashboard/agentDashboard/BalanceRequest";
+import CashInAgent from "../Layout/pages/dashboard/adminDashboard/CashInAgent";
 
 
 
@@ -45,47 +47,55 @@ const router = createBrowserRouter([
       children:[
         {
           path: "monitor_transaction",
-          element:<AdminRoute> <MonitorTransaction /></AdminRoute>,
+          element: <MonitorTransaction />,
         },
         {
           path: "user_management",
-          element:<AdminRoute><UserManagement /></AdminRoute>,
+          element:<UserManagement />,
+        },
+        {
+          path: "cashin_agent",
+          element:<CashInAgent/>,
         },
         {
           path: "management_agent",
-          element: <AdminRoute><AgentRequest /></AdminRoute>,
+          element: <AgentRequest />,
         },
         {
           path: "balance",
-          element: <AdminRoute><Balance /></AdminRoute>,
+          element: <Balance />,
         },
         {
-          path: "cash_out",
-          element: <AgentRoute> <CashOut /></AgentRoute>,
+          path: "cash_out_agent",
+          element:  <CashOut />,
         },
         {
-          path: "cash_in",
-          element: <AgentRoute><CashIn /></AgentRoute>,
+          path: "cash_in_agent",
+          element: <CashIn />,
         },
         {
-          path: "balance_inquiry",
-          element: <AgentRoute><BlanceInquiry /></AgentRoute>,
+          path: "agent_balance_request",
+          element: <BalanceRequest />,
+        },
+        {
+          path: "inquiry",
+          element: <BlanceInquiry />,
         },
         {
           path: "send_money",
-          element: <UserRoute><SendMoney /></UserRoute>,
+          element: <SendMoney />,
         },
         {
           path: "cash_out",
-          element: <UserRoute><UserCashOut /></UserRoute>,
+          element:<UserCashOut />,
         },
         {
           path: "cash_in",
-          element: <UserRoute><UserCashIn /></UserRoute>,
+          element: <UserCashIn />,
         },
         {
           path: "balance_inquiry",
-          element: <UserRoute><UserBalance /></UserRoute>,
+          element: <UserBalance />,
         },
        
       ]

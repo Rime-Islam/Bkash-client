@@ -52,6 +52,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                             Monitor Transactions
                           </NavLink>
                    </li>
+                    <li>
+                      <NavLink
+                                      to="/dashboard/cashin_agent"
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      aria-current="page"
+                                      >
+                            Cash-In Request
+                          </NavLink>
+                   </li>
                   
                   <li>
                       <NavLink
@@ -88,7 +97,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                     
                   <li>
                       <NavLink
-                                      to="/dashboard/cash_out"
+                                      to="/dashboard/agent_balance_request"
+                                      className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
+                                      aria-current="page"
+                                      >
+                           Balance Request
+                          </NavLink>
+                   </li>
+                  <li>
+                      <NavLink
+                                      to="/dashboard/cash_out_agent"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
@@ -97,7 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                    </li>
                   <li>
                       <NavLink
-                                      to="/dashboard/cash_in"
+                                      to="/dashboard/cash_in_agent"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >
@@ -106,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                    </li>
                    <li>
                       <NavLink
-                                      to="/dashboard/balance_inquiry"
+                                      to="/dashboard/inquiry"
                                       className={({ isActive, isPending }) => isPending ? "pending " : isActive ? "text-[#70AABD] flex  px-4 py-2 mt-2" : "flex px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700" }
                                       aria-current="page"
                                       >

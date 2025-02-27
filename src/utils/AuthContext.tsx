@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type TUser = {
+  _id: any;
   id: string;
   accountType: string;
   email: string;

@@ -1,5 +1,5 @@
 import { IoIosArrowForward } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
